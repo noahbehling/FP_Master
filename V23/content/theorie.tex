@@ -1,50 +1,49 @@
 \section{Theorie}
-Im Folgenden werden verschiedene quantenmechanische Modelle, sowie der jeweilige akustische Aufbau erläutert. Hierbei wird vor Allem auf Gemeinsamkeiten und UntersRede der beiden Modelle eingegangen.
+Im Folgenden werden verschiedene quantenmechanische Modelle, sowie der jeweilige akustische Aufbau erläutert. Hierbei wird vor allem auf Gemeinsamkeiten und Unterschiede der beiden Modelle eingegangen.
 
 \subsection{Das Wasserstoff-Atom}
 In diesem Abschnitt sollen das quantenmechanische Modell eines Wasserstoffatoms und das Verhalten von Schallwellen in einem Kugelresonator erläutert werden, sowie Analogien und Unterschiede der beiden Systeme betrachtet werden.
 \subsubsection{Das quantenmechanische Modell}
 Ein Wasserstoff-Atom besteht aus einem Proton, welches den Atomkern bildet, und einem Elektron, das den Kern umgibt. Zur Bestimmung der Wellenfunktion $\Psi$ des Elektrons muss die zeitunabhängige Schrödingergleichung
-\begin{equation}
+\begin{equation*}
   E \Psi = \Delta \Psi + V \left( \vec{r} \right) \Psi
-\end{equation}
+\end{equation*}
 gelöst werden, wobei $E$ die Energie, $\Delta$ der Laplace-Operator, und $V \left( \vec{r} \right)$ das Potential, in dem sich ein Teilchen befindet, ist. Im Falle des H-Atoms handelt es sich bei dem Potential um das Coulomb-Potential
-\begin{equation}
+\begin{equation*}
   V \left( \vec{r} \right) = V \left( r \right) = - \frac{e^2}{4\pi \epsilon_0 r}
-\end{equation}
-des Atomkerns mit $r = |\vec{r}|$.
-Aufgrund der Kugelsymmetrie des Sytems bieten sich zyklische Koordinaten an, wobei sich mit Hilfe des Separationsansatz
-\begin{equation}
+\end{equation*}
+des Atomkerns mit dem Abstand des Elektrons vom Atomkern $r = |\vec{r}|$, wobei $\vec{r}$ der Ortsvektor des Elektrons ist, der elektrischen Feldkonstante $\epsilon_0$ und der Elementarladung $e$.
+Aufgrund der Kugelsymmetrie des Systems bieten sich zyklische Koordinaten an. Mit Hilfe des Separationsansatz
+\begin{equation*}
   \Psi \left( r, \phi, \theta \right) = R\left( r \right) u \left( \phi, \theta \right)
-\end{equation}
-zwei unabhängige Bewegungsgleichungen
-\begin{equation}
+\end{equation*}
+finden sich so zwei unabhängige Bewegungsgleichungen
+\begin{equation*}
   \left( \frac{\partial^2}{\partial \theta^2} + \frac{\cos \theta}{\sin \theta} \frac{\partial}{\partial \theta} + \frac{1}{\sin^2 \theta} \frac{\partial^2}{\partial \phi^2} \right) u \left( \phi, \theta \right) = -l \left( l + 1 \right) u \left( \phi, \theta \right)
-\end{equation}
+\end{equation*}
 und
 \begin{equation}
   \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial R\left( r\right)}{\partial r} \right) + \frac{2m}{\hbar^2} \left( \frac{e^2}{4\pi \epsilon_0 r} + E + \frac{\hbar^2 l \left( l + 1 \right)}{2m r^2} \right) R\left( r \right) = 0
   \label{eq:radial_qm}
 \end{equation}
-für den Winkel- und den Radialanteil.
+für den Winkelanteil $u \left( \phi, \theta \right)$ und den Radialanteil $R\left( r\right)$.
 Lösung der ersteren sind die Kugelflächenfunktionen
 \begin{equation}
   Y_{lm} \left(\theta, \phi \right) = \frac{1}{\sqrt{2\pi}} \left( \frac{2l + 1}{2} \frac{\left(l - |m|\right)!}{\left(l + |m|\right)!} \right)^{\frac{1}{2}} P_l^{m} \left(\cos \theta \right) e^{im\phi}
   \label{eq:kugelflaechen}
 \end{equation}
 mit den zugeordneten Legendre-Polynomen
-\begin{equation}
+\begin{equation*}
   P_l^{m} (x) = \frac{(-1)^m}{2^l l!} \left( 1 - x^2 \right)^{\frac{m}{2}} \frac{\mathrm{d}^{l+m}}{\mathrm{d} x^{l+m}} \left(x^2 - 1 \right)^l,
-\end{equation}
-wobei $l$ die Bahndrehimpuls- und $m$ die magnetische Quantenzahl sind,
-und letztere wird gelöst durch die Funktionen
-\begin{equation}
+\end{equation*}
+wobei $l$ die Bahndrehimpuls- und $m$ die magnetische Quantenzahl sind. Letztere wird gelöst durch die Funktionen
+\begin{equation*}
   R_{nl} (r) = - \left( \frac{\left( n - l - 1 \right)!}{2n\left(\left(n + l\right)!\right)^3} \right)^{\frac{1}{2}} \left( \frac{2}{na_0} \right)^{\frac{3}{2}} \left( \frac{2r}{na_0} \right)^{l} e^{-\frac{r}{n a_0}} L_{n+l}^{2l+1} \left( \frac{2r}{n a_0}\right)
-\end{equation}
+\end{equation*}
 mit den zugeordneten Laguerre-Polynomen
-\begin{equation}
+\begin{equation*}
   L_n^{k} (x) = \frac{e^x x^{-k}}{n!} \frac{\mathrm{d}^n}{\mathrm{d} x^n} \left( e^{-x} x^{n+k} \right),
-\end{equation}
+\end{equation*}
 dem Bohr'schen Atomradius $a_0 = \frac{4\pi \epsilon_0 \hbar^2}{m e^2}$ und der Hauptquantenzahl $n = N + l + 1$, wobei $N$ die radiale Quantenzahl ist.\\
 Die Energie eines Zustandes ist definiert über
 \begin{equation}
@@ -56,11 +55,11 @@ mit der Rydberg-Energie $E_\mathrm{R} = \frac{m e^4}{32\pi^2 \epsilon_0^{2}\hbar
 \subsubsection{Das akustische Modell}
 Zur akustischen Modellierung des H-Atoms wird ein Kugelresonator genutzt.
 Schallwellen in solch einem Resonator unterliegen der Helmholtz-Gleichung
-\begin{equation}
+\begin{equation*}
   \Delta p \left(r, \phi, \theta \right) = - \frac{\omega^2}{c^2} p \left(r, \phi, \theta \right)
-\end{equation}
-mit der Schallgeschwindigkeit $c$ und der Kreisfrequenz $\omega$.
-Mit Hilfe eines Separationsansatz lassen sich auch hier der Winkel- und Radialteil separieren, wobei die Bewegungsgleichung des Winkelanteils identisch zu der des Winkelanteils des H-Atoms und demnach auch durch die Kugelflächenfunktionen \eqref{eq:kugelflaechen} gelöst. Für den Radialteil ergibt sich die Bewegungsgleichung
+\end{equation*}
+mit dem Schalldruck $p\left(r, \phi, \theta \right)$, dem Laplace-Operator $\Delta$, der Schallgeschwindigkeit $c$ und der Kreisfrequenz $\omega$.
+Mit Hilfe eines Separationsansatzes lassen sich auch hier der Winkel- und Radialteil separieren, wobei die Bewegungsgleichung des Winkelanteils identisch zu der des Winkelanteils des H-Atoms ist und demnach auch durch die Kugelflächenfunktionen \eqref{eq:kugelflaechen} gelöst wird. Für den Radialteil ergibt sich die Bewegungsgleichung
 \begin{equation}
   - k^2 f(r) = \frac{\partial^2 f(r)}{\partial r^2} + \frac{2}{r} \frac{\partial f(r)}{\partial r} - \frac{l (l+1)}{r^2} f(r).
   \label{eq:radial_schall}
@@ -70,23 +69,23 @@ Mit Hilfe eines Separationsansatz lassen sich auch hier der Winkel- und Radialte
 Da die Winkelanteile der Bewegungsgleichungen beider Systeme identisch sind, eignen sich die Quantenzahlen $l$ und $m$ zur Beschreibung der Wellen in beiden Systemen.
 Wie im Vergleich von Gleichung \eqref{eq:radial_qm} und \eqref{eq:radial_schall} zu sehen ist, unterscheiden sich die Radialteile der Bewegungsgleichungen beider Systeme und demnach ist die radiale Quantenzahl $n'$ des einen Systems nicht mit der des anderen gleichzusetzen.
 Weiterhin lässt sich für das akustische Modell keine Hauptquantenzahl einführen, da dies ein Effekt des Coulomb-Potentials im quantenmechanischen Modell ist.
-Daher ist auch nur im quantenmechanischen Modell eine Entartung der Energieeigentwerte in $l$ zu beobachten, weshalb sie nur von $n$ abhängen, wie in Gleichung \eqref{eq:eigenenergie} zu sehen ist. In beiden Systemen ist allerdings eine Entartung in $m$ zu beobachten. Da $-l \leq m \leq l$ gilt, sind Zustände $(n', l)$ bzw. $(n, l)$ $(2l+1)$-fach entartet. Diese Entartung lässt sich durch Brechung der Kugelsymmetrie aufheben, was im akustischen Modell durch Einfügen eines Ringes zwischen die beiden Hälften des Kugelresonators erreicht werden kann. Ohne diesen Ring kann im Kugelresonator nur der Zustand $m=0$ gemessen werden, da nur diese Wellenfunktion auf der Quantisierungsachse, die durch die Lautspreheposition bestimmt ist, eine von null verschiedene Amplitude hat.
+Daher ist auch nur im quantenmechanischen Modell eine Entartung der Energieeigenwerte in $l$ zu beobachten, weshalb sie nur von $n$ abhängen, wie in Gleichung \eqref{eq:eigenenergie} zu sehen ist. In beiden Systemen ist allerdings eine Entartung in $m$ zu beobachten. Da $-l \leq m \leq l$ gilt, sind Zustände $(n', l)$ bzw. $(n, l)$ $(2l+1)$-fach entartet. Diese Entartung lässt sich durch Brechung der Kugelsymmetrie aufheben, was im akustischen Modell durch Einfügen eines Ringes zwischen die beiden Hälften des Kugelresonators erreicht werden kann. Ohne diesen Ring kann im Kugelresonator nur der Zustand $m=0$ gemessen werden, da nur diese Wellenfunktion auf der Quantisierungsachse, die durch die Lautsprecherposition bestimmt ist, eine von null verschiedene Amplitude hat.
 
 \subsection[Das $\mathrm{H}_2^{+}$-Molekül]{Das $\symbf{\mathrm{H}_2^{+}}$-Molekül}
-Beim $\mathrm{H}_2^{+}$-Molekül wird ein einzelnes Elektron im Potential zweier H-Atome betrachtet. Dieses System ist zylindersymmetrisch bezüglich der Achse, die durch die beiden Atomkerne verläuft. Daher ist $m$ auch eine geeignete Quantenzahl zur Beschreibung des Moleküls. Für $m=0$ wird ein Zustand mit $\sigma$ bezeichnet, für $m=1$ und $m=2$ werden $\pi$ und $\delta$. $l$ hingegen keine geeignete Quantenzahl zur Beschreibung des Moleküls, da mit einem kontinuierlichen Übergang der Atomorbitale zum Molekülorbital als Funktion des Kernabstandes zu rechnen ist. Zur Klassifizierung von Zuständen mit gleicher Symmetrie, aber ansteigender Energie, wird eine Hauptquantenzahl eingeführt.
+Beim $\mathrm{H}_2^{+}$-Molekül wird ein einzelnes Elektron im Potential zweier H-Atome betrachtet. Dieses System ist zylindersymmetrisch bezüglich der Achse, die durch die beiden Atomkerne verläuft. Daher ist $m$ auch eine geeignete Quantenzahl zur Beschreibung des Moleküls. Für $m=0$ wird ein Zustand mit $\sigma$ bezeichnet, für $m=1$ und $m=2$ werden $\pi$ und $\delta$ verwendet. Die Quantenzahl $l$ hingegen eignet sich nicht zur Beschreibung des Moleküls, da mit einem kontinuierlichen Übergang der Atomorbitale zum Molekülorbital als Funktion des Kernabstandes zu rechnen ist. Zur Klassifizierung von Zuständen mit gleicher Symmetrie, aber ansteigender Energie, wird eine Hauptquantenzahl eingeführt.
 Weiterhin wird zwischen Atomorbitalen mit gleichem und entgegengesetzten Vorzeichen  bzw. einer Phasenverschiebung von $\SI{0}{\degree}$ und $\SI{180}{\degree}$ unterschieden. Bei gleichem Vorzeichen werden die Zustände gerade oder bindend genannt und mit einem Index $g$ gekennzeichnet, ungerade, oder auch anti-bindende Zustände werden mit dem Index $u$ gekennzeichnet.
 
-Zur akustischen Modellierung des $\mathrm{H}_2^{+}$-Moleküls werden zwei Kugelresonatoren aneinander gekoppelt, wobei eine der Kernabstand durch Irisblenden verschiedenen Durchmessers zwischen den Öffnungen der beiden Resonatoren simuliert wird. Die Vorzeichen der stehenden Wellen in beiden Resonatoren können als Phasenverschiebung betrachtet werden, es können also sowohl gerade, als auch ungerade Zustände beobachtet werden. Auch die Hauptquantenzahl und $m$ können zur Beschreibung der Eigenzustände genutzt werden, wobei die unterschiedlichen Bedingungen in beiden Systemen zu anderen Reihenfolgen der Eigenzustände führt. Außerdem ist der Grundzustand $1\sigma_g [1s]$ im akustischen Modell aufgrund der Neumann-Randbedingungen nicht zu beobachten.
+Zur akustischen Modellierung des $\mathrm{H}_2^{+}$-Moleküls werden zwei Kugelresonatoren aneinander gekoppelt, wobei der Kernabstand durch Irisblenden verschiedenen Durchmessers zwischen den Öffnungen der beiden Resonatoren simuliert wird. Die Vorzeichen der stehenden Wellen in beiden Resonatoren können als Phasenverschiebung betrachtet werden, es können also sowohl gerade, als auch ungerade Zustände beobachtet werden. Auch die Hauptquantenzahl und die Quantenzahl $m$ können zur Beschreibung der Eigenzustände genutzt werden, wobei die unterschiedlichen Bedingungen in beiden Systemen zu anderen Reihenfolgen der Eigenzustände führt. Außerdem ist der Grundzustand $1\sigma_g [1s]$ im akustischen Modell aufgrund der Neumann-Randbedingungen nicht zu beobachten.
 
 \subsection{Der eindimensionale Festkörper}
-Beim eindmimensionalen Festkörper wird ein Elektron als Materiewelle in einem Festkörper unter Ein-Elektron-Näherung betrachtet, wobei die Dispersionsrelation für das Elektron
+Beim eindimensionalen Festkörper wird ein Elektron als Materiewelle in einem Festkörper unter Ein-Elektron-Näherung betrachtet, wobei die Dispersionsrelation für das Elektron
 \begin{equation}
   E (k) = \frac{\hbar^2}{2m} k^2
   \label{eq:dispersion_qm}
 \end{equation}
 lautet. In diesem System kommt es an den Grenzen der Brillouin-Zone, also bei $k = \pm n \frac{\pi}{a}$, zu Bragg-Reflexion, wobei $a$ der Abstand der Streuzentren des Festkörpers ist. An diesen Stellen kommt es zu Energiesprüngen, der übersprungene Bereich wird Bandlücke genannt.
 
-Zur akustischen Modellierung wird ein Röhrenresonator verwendet, der aus mehreren Zylindern besteht, zwischen denen jeweils eine Irisblende eingefügt wird. Die einzelnen Zylinder stellen dabei eine Elementarzelle des Festkörpers da und die Irisblenden dienen als Streuzentren. Durch das Einbauen von Zylindern abwechselnder Länge oder Irisblenden abwechselnden Durchmessers können also auch Festkörper aus zwei Atomarten oder mit verschieden Kopplungskonstanten simuliert werden. Außerdem lässt sich durch Auswechseln eines einzelnen Zylinders ein Gitterfehler, genauer gesagt ein Substitutionsatom, im Festkörper simulieren. Es ist allerdings zu beachten, dass die Dispersionsrelation der Schallwelle
+Zur akustischen Modellierung wird ein Röhrenresonator verwendet, der aus mehreren Zylindern besteht, zwischen denen jeweils eine Irisblende eingefügt wird. Die einzelnen Zylinder stellen dabei eine Elementarzelle des Festkörpers da und die Irisblenden dienen als Streuzentren. Durch das Einbauen von Zylindern abwechselnder Länge oder Irisblenden abwechselnden Durchmessers können also auch Festkörper aus zwei Atomarten oder mit verschiedenen Kopplungskonstanten simuliert werden. Außerdem lässt sich durch Auswechseln eines einzelnen Zylinders ein Gitterfehler, genauer gesagt ein Substitutionsatom, im Festkörper simulieren. Es ist allerdings zu beachten, dass die Dispersionsrelation der Schallwelle
 \begin{equation}
   f (k) = \frac{c}{2\pi} k
   \label{eq:dispersion_schall}
