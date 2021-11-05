@@ -42,14 +42,14 @@ Messung mit dem PC aufgenommen; dies ist in \autoref{fig:blub1} dargestellt. All
         \includegraphics[width=\textwidth]{data/1_2zylinder50mmPC/10.png}
         \caption{PC, 10 Zylinder ($50 \, \symup{mm}$)}
     \end{subfigure}
-       \caption{Das Frequenzspektrum von $0,1 \, \symup{kHz}$ bis $12 \, \symup{kHz}$ bei verschiedener Anzahlen Zylinder (Länge $50 \, \symup{mm}$) aufgenommen einmal mit einem Oszilloskop und einmal mit dem PC.}
+       \caption{Das Frequenzspektrum von $0,1 \, \symup{kHz}$ bis $12 \, \symup{kHz}$ bei verschiedener Anzahl von Zylinder (Länge $50 \, \symup{mm}$) aufgenommen einmal mit einem Oszilloskop und einmal mit dem PC.}
        \label{fig:blub1}
 \end{figure}
 
 Es fällt auf, dass die Resonanzfrequenzen mit mehr Zylindern ebenfalls zunehmen. Des Weiteren stimmen die 
-Darstellungen von Oszilloskop und PC überein. Die Artefakte im niedrigen Frequenz treten bei beiden
+Darstellungen von Oszilloskop und PC überein. Die Artefakte im niedrigen Frequenzbereich treten bei beiden
 Messreihen auf. Auch die Proportionalität der verschiedenen Resonanzfrequenzen ist bei den gemessenen
-vergleichbar. Des Weiteren ist die Auflösung des PCs erwartungsgemäß höher als die des Oszilloskopes.\\
+Spektren vergleichbar. Des Weiteren ist die Auflösung des PCs erwartungsgemäß höher als die des Oszilloskopes.\\
 Abschließend wird noch ein weiteres Frequenzspektrum eines einzelnen $75 \, \symup{mm}$ Zylinders am PC aufgenommen.
 Dieses ist in \autoref{fig:75mm1} dargestellt.
 \begin{figure}[h]
@@ -58,8 +58,8 @@ Dieses ist in \autoref{fig:75mm1} dargestellt.
     \caption{Frequenzspektrum eines einzelnen $75 \, \symup{mm}$ Zylinders im Bereich $0,1 \, \symup{kHz}$ bis $12 \, \symup{kHz}$.}
     \label{fig:75mm1}
 \end{figure}
-Es wird deutlich, dass die Anzahl der Resonanzfrequenzen nicht von der Anzahl der Zylinder sondern 
-von der Länge des Gesamtzylinders abhängt. Die Anzahl der Peaks ist höher als bei einem $50 \, \symup{mm}$,
+Es wird deutlich, dass die Anzahl der Resonanzfrequenzen nicht von der Anzahl der Zylinder, sondern 
+von der Länge des Gesamtzylinders abhängt. Die Anzahl der Peaks ist höher als bei einem $50 \; \symup{mm}$ Zylinder,
 aber geringer als bei zwei $50 \, \symup{mm}$ Zylindern.
 
 \subsection{Das Wasserstoffatom}
@@ -149,15 +149,15 @@ $1,8 \, \symup{kHz}$ bis $2,3 \, \symup{kHz}$ bei einem Winkel von $\alpha = 180
     \caption{Frequenzspektrum der Resonanzfrequenz 2. Ordnung des Kugelresonators mit eingesetztem Zwischenring verschiedener Größe.}
     \label{fig:ringe}
 \end{figure}
-Wie zu sehen spaltet sich der Resonanzpeak in zwei Peaks auf. Dabei variiert die Amplitude 
+Wie zu sehen ist, spaltet sich der Resonanzpeak in zwei Peaks auf. Dabei variiert die Amplitude 
 der Peaks je nach Ringdicke, wobei sich der Abstand beider Peaks mit steigender
 Ringdicke auch erhöht. Der Abstand der Frequenzen ist in \autoref{fig:freq_diff} gegen die 
 Ringdicke aufgetragen. Des weiteren wurde mittels Python 3.8.0 eine Ausgleichgerade der Form
 \begin{equation*}
      \Delta f = a \cdot d + b
 \end{equation*}
-erstellt. Die Fehler der Frequenzmessung wird dabei als $1$\;Hz angenommen, da dies auch die 
-Schrittweite der Frequenz bei dieser Messung ist; der Durchmesser der Ringe wird als genau
+erstellt. Der Fehler der Frequenzmessung wird dabei als $1$\;Hz angenommen, da dies auch die 
+Schrittweite der Frequenz bei dieser Messung ist; die Durchmesser der Ringe werden als genau
 angenommen, da sie vom Hersteller angegeben sind. Die Parameter ergeben sich mittels des Paketes
 \textit{Numeric Python} \cite{numpy} und die Fehlerrechnung wird allgemein automatisiert 
 mittels des Paketes \textit{uncertainties} \cite{uncertainties}.
@@ -173,7 +173,7 @@ Die Parameter der Geraden ergeben sich zu
     \label{fig:freq_diff}
 \end{figure}
 
-Für den 9\;mm Ring werden zudem die beiden Resonanzpeaks gegen den Azimuthwinkel $\varphi$ aufgetragen 
+Für den 9\;mm Ring werden zudem die beiden Resonanzpeaks gegen den Azimutwinkel $\varphi$ aufgetragen 
 und wiederum mit der entsprechenden Kugelflächenfunktion verglichen. Dies ist in \autoref{fig:9mmpolar}
 zu sehen.
 \begin{figure}
@@ -190,7 +190,7 @@ zu sehen.
         \caption{2. Resonanz.}
     \end{subfigure}
     \hfill
-    \caption{Resonanzen der beiden Peaks in Abhängigkeit des Azimuthwinkels $\varphi$ mit entsprechenden Kugelflächenfunktionen.}
+    \caption{Resonanzen der beiden Peaks in Abhängigkeit des Azimutwinkels $\varphi$ mit entsprechenden Kugelflächenfunktionen.}
     \label{fig:9mmpolar}
 \end{figure}
 Hier folgen die Messwerte den Kugelflächenfunktionen sehr gut, wenngleich kleinere Abweichungen dennoch
@@ -238,7 +238,7 @@ verläuft dabei von 2,2\;kHz bis 2,5\;kHz. Die Spektren sind in \autoref{fig:ble
 \end{figure}
 Zu sehen sind jeweils drei Peaks, wobei der erste Peak bei der 5\;mm Blende kaum erkennbar ist, 
 die jeweils je nach Blendendurchmesser $d$ bei unterschiedlichen Frequenzen liegen. Diese Frequenzen
-in Abhängigkeit des Blendendurchmessers ist in \autoref{fig:frequenz_blende} zu sehen.
+in Abhängigkeit des Blendendurchmessers sind in \autoref{fig:frequenz_blende} zu sehen.
 \begin{figure}
     \centering
     \includegraphics[width=0.5\textwidth]{build/frequenz_blende}
@@ -271,7 +271,7 @@ und in \autoref{fig:polar_blende} dargestellt.
         \caption{3. Resonanz.}
     \end{subfigure}
     \hfill
-    \caption{Verteilung der Peaks der drei beobachteten Resonanzen an den zwei Kugelresonatoren mit einem Blendendurchmesser von 15\;mm  in Abhängigkeit des Azimuthwinkels $\varphi$.}
+    \caption{Verteilung der Peaks der drei beobachteten Resonanzen an den zwei Kugelresonatoren mit einem Blendendurchmesser von 15\;mm  in Abhängigkeit des Azimutwinkels $\varphi$.}
     \label{fig:polar_blende}
 \end{figure}
 Es werden insgesamt 3 Resonanzen detektiert. Auffällig ist das konstante Verhalten der Amplitude
@@ -281,9 +281,9 @@ Die Phasendifferenz zwischen unterer und ober Kugel an den Resonanzfrequenzen is
 aufgetragen.
 \input{./content/3_2.tex}
 Auffällig ist, dass beim zweiten Peak eine Phasendifferenz deutlich größer als 180$°$ gemessen wurde.
-Die Zustände die hier letztlich vermessen wurden ist beim dritten Peak der Zustand $ 2 \sigma_{\text{u}}$.
+Der Zustand, der hier letztlich vermessen wurde, ist beim dritten Peak der Zustand $ 2 \sigma_{\text{u}}$.
 Die anderen beiden Peaks sollten theoretisch die Zustände $2 \sigma_{\text{g}}$ und 
-$1 \pi$ zu sehen sein. Diese überlagern sich allerdings so, dass keine genauere Bestimmung möglich ist.
+$1 \pi_{\text{u}}$ zeigen. Diese überlagern sich allerdings so, dass keine genauere Bestimmung möglich ist.
 
 \subsection{Der eindimensionaler Festkörper}
 Zunächst wird eine Kette aus gleichen Elementarzellen und gleichen Streuzentren simuliert.
@@ -311,10 +311,10 @@ Anhang als \autoref{fig:anhang_allesgleich} aufgeführt.
         \caption{10 Zylinder.}
     \end{subfigure}
     \hfill
-    \caption{Frequenzspektrum von verschiedenen Anzahlen Zylinder mit 50\;mm Länge und jeweils Irsiblenden mit 16\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
+    \caption{Frequenzspektrum von verschiedener Anzahl von Zylinder mit 50\;mm Länge und jeweils Irsiblenden mit 16\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
     \label{fig:allesgleich}
 \end{figure}
-Scheinbar steigt die Anzahl mit der Anzahl der Zylinder an. Die Resonanzen scheinen sich in
+Scheinbar steigt die Anzahl der Resonanzfrequenzen mit der Anzahl der Zylinder an. Die Resonanzen scheinen sich in
 Gruppen anzuordnen, in denen immer so viele Peaks wie Zylinder sind. Der Abstand der Peaks nimmt
 dabei generell ab. Ähnliche Spektren sind auch für Irisblenden mit 10\;mm und 13\;mm Durchmesser 
 in \autoref{fig:allesgleich10} und \autoref{fig:allesgleich13} zu sehen.
@@ -338,7 +338,7 @@ in \autoref{fig:allesgleich10} und \autoref{fig:allesgleich13} zu sehen.
         \caption{10 Zylinder.}
     \end{subfigure}
     \hfill
-    \caption{Frequenzspektrum von verschiedenen Anzahlen Zylinder mit 50\;mm Länge und jeweils Irsiblenden mit 10\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
+    \caption{Frequenzspektrum bei verschiedener Anzahl von Zylinder mit 50\;mm Länge und jeweils Irsiblenden mit 10\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
     \label{fig:allesgleich10}
 \end{figure}
 \begin{figure}
@@ -367,7 +367,8 @@ in \autoref{fig:allesgleich10} und \autoref{fig:allesgleich13} zu sehen.
 Von der Struktur her unterscheiden sich beide Spektren nur geringfügig vom Spektrum mit den 
 16\;mm Irisblenden. Die Lücke zwischen den einzelnen Peakgruppen wird allerdings mit kleinerer
 Blende größer. Bezogen auf den Festkörper kann diese Lücke als Bandlücke interpretiert werden, 
-die bei kleineren Streuzentren größer wird.\\
+die bei kleineren Streuzentren größer wird. Die Aufteilung der Peaks innerhalb der Gruppe kann 
+durch den Einfluss der Streuung interpretiert werden. Ohne Streuung wäre die Gruppe nur ein großer Peak.\\
 In einer 10 zylindrigen Kette aus 50\;mm Zylindern wird ein Zylinder durch einen Zylinder 
 einer anderen Größe ersetzt. Die anderen Zylinder haben die Größe 37,5\;mm, 62,5\;mm, sowie 75\;mm.
 Die entsprechenden Frequenzspektren sind in \autoref{fig:einzylinderanders} zu sehen.
@@ -391,7 +392,7 @@ Die entsprechenden Frequenzspektren sind in \autoref{fig:einzylinderanders} zu s
         \caption{$l =$ 75\;mm.}
     \end{subfigure}
     \hfill
-    \caption{Frequenzspektrum von 9 Zylinder mit $l = $ 50\;mm Länge und einem Zylinder unterschiedlicher Länge und jeweils Irsiblenden mit 16\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
+    \caption{Frequenzspektrum von 9 Zylindern mit $l = $ 50\;mm Länge und einem Zylinder unterschiedlicher Länge und jeweils Irsiblenden mit 16\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
     \label{fig:einzylinderanders}
 \end{figure}
 Für die unterschiedlichen eingesetzten Zylinder verändert sich die Position einer Resonanzfrequenz
@@ -405,11 +406,11 @@ dargstellt.
     \centering
         \centering
         \includegraphics[width=0.55\textwidth]{data/4_4/abwechselnd.png}
-    \caption{Frequenzspektrum einer 10 Zylinderkette mit abwecheln $l = $ 50\;mm und $l = 75$\;mm Länge und jeweils Irsiblenden mit 16\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
+    \caption{Frequenzspektrum einer 10 Zylinderkette mit abwechselnd $l = $ 50\;mm und $l = 75$\;mm Länge und jeweils Irsiblenden mit 16\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
     \label{fig:abwechselndezylinder}
 \end{figure}
 Im direkten Vergleich mit dem Spektrum eines einzelnen 50\;mm beziehungsweise 75\;mm Zylinder in 
-\autoref{fig:blub1} und \autoref{fig:75mm1}, dass es sich tatsächlich um eine Überlagerung 
+\autoref{fig:blub1} und \autoref{fig:75mm1} fällt auf, dass es sich tatsächlich um eine Überlagerung 
 beider Frequenzspektren handelt. Die zuvor betrachteten Gruppen bestehen im Prinzip aus 
 zwei zusammengefügten Gruppen. Es ergeben sich so andere Zustände als in den Zylinderketten zuvor.\\
 Durch Beibehalten der Zylinderstruktur (50\:mm) und abwechseln der Irisblenden (16\;mm und 13\;mm)
@@ -418,7 +419,7 @@ ergibt sich das Spektrum in \autoref{fig:abwechselndeblenden}.
     \centering
         \centering
         \includegraphics[width=0.55\textwidth]{data/4_5/abwechselndeblende.png}
-    \caption{Frequenzspektrum einer 10 Zylinderkette Längen $l = $ 50\;mm und jeweils abwechselnd Irsiblenden mit 16\;mm beziehungsweise 13\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
+    \caption{Frequenzspektrum einer 10 Zylinderkette mit Längen $l = $ 50\;mm und jeweils abwechselnd Irsiblenden mit 16\;mm beziehungsweise 13\;mm Durchmesser dazwischen im Bereich 0,1\;kHz bis 12\;Hz.}
     \label{fig:abwechselndeblenden}
 \end{figure}
 In diesem Fall bilden sich neben den Resonanzgruppen deutlich kleinere Gruppen aus, mit einer Lücke 
