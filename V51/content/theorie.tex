@@ -1,1 +1,193 @@
 \section{Theorie}
+\label{sec:theorie}
+Mittels eines Operationsverstärkers lässt sich eine Ausgangsspannung $U_a$ erzeugen, welche 
+proportional zur Differenz der angelegten beiden Eingangsspannungen ist. 
+Der Operationsverstärker ist ein Bauteil welches im Allgemeinen über zwei Spannungseingänge, zwei Anschlüsse 
+für die Betriebsspannung $U_B$ und einen Ausgang 
+verfügt. In Schaltskizzen wird 
+das in \autoref{fig:opskizze} gezeigte Symbol für den Operationsverstärker verwendet.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.2\textwidth]{op.png}
+    \caption{Schaltzeichen des Operationsverstärkers \cite{anleitung}.}
+    \label{fig:opskizze}
+\end{figure}
+Dabei beschreibt 
+\textbf{+} die Eingangsspannung die in Phase geschaltet ist und daher auch als nicht-invertierender
+Eingang beschrieben wird, während \textbf{-} der gegenphasige oder invertierende Eingang 
+zur Ausgangsspannung ist. Die Ausgangsspannung ist dadurch definiert als 
+\begin{equation*}
+    U_a = v \cdot  (U_+ - U_-),
+\end{equation*}
+wobei $U_{\pm}$ die angelegte Spannung an den jeweiligen Eingängen und $v$ die Leerlaufverstärkung ist.
+Die Ausgangsspannung ist dabei durch die Betriebsspannung über 
+\begin{equation*}
+    - U_B < U_a < U_B
+\end{equation*}
+begrenzt.
+
+Zur theoretischen Beschreibung eines Operationsverstärkers werden in der Regel idealisierende 
+Annahmen getroffen. Im idealen Operationsverstärker ist sowohl die Verstärkung als auch 
+der Eingangswiderstand unendlich groß ($v = \infty$ und $R_E = \infty$),
+während es keinen Ausgansgwiderstand gibt ($R_A = 0$). \\
+In einem realen Operationsverstärker sind diese Idealisierungen nicht zu erreichen, sodass 
+Leerlaufverstärkung und Eingangswiderstand nur möglichst groß und der Ausgansgwiderstand möglichst 
+klein gehalten werden. Da die Theorie Operationsverstärker mit dieses Idealisierungen beschreibt, 
+kommen in der Realität noch Korrekturterme hinzu.
+
+\subsection{Invertierender Linearverstärker}
+Die Schaltskizze eines invertierenden Linearverstärkers ist in \autoref{fig:lin} zu sehen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{linear.png}
+    \caption{Schaltskizze des invertierenden Linearverstärkers \cite{anleitung}.}
+    \label{fig:lin}
+\end{figure}
+Bei diesem Aufbau wird der invertierende Eingang über zwei Widerstände rückgekoppelt,
+sodass ein Teil der 
+Ausgangsspannung an den invertierenden Eingang zurückgegeben wird. An dieser Anschlussstelle 
+ist die Spannung gering, sodass sich über die Kirchhoff'schen Regeln die Gleichung 
+\begin{equation*}
+    \frac{U_e}{R_1} + \frac{U_a}{R_2} = 0
+\end{equation*}
+bestimmen lässt. Die Bezeichnungen stimmen dabei mit denen aus \autoref{fig:lin} überein.
+Die ideale Leerlaufverstärkung $v'$ ist damit durch 
+\begin{equation}
+    \label{eqn:verhaeltnis}
+    v' = \frac{U_a}{U_e} = - \frac{R_2}{R_1}
+\end{equation}
+gegeben. Im Idealfall ist die Leerlaufverstärkung also nur durch das Verhältnis der Widerstände
+gegeben, da die Spannung $U_+$ am nicht-invertierenden Eingang verschwindet.
+An der Anschlussstelle (As) ergibt sich für einen unbelasteten Spannungsteiler ($I_\text{As}=0$)
+\begin{equation*}
+    U_\text{AS} = - \frac{U_a}{v}
+\end{equation*}
+mit der realen Verstärkung $V$ und damit 
+\begin{equation*}
+    \frac{U_\text{AS} - U_1}{U_a - U_e} = \frac{R_1}{R_1 + R_2}.
+\end{equation*}   
+Über \autoref{eqn:verhaeltnis} gibt sich damit
+\begin{equation*}
+    \frac{1}{v'} \approx \frac{1}{v} + \frac{R_1}{R_2}.
+\end{equation*}
+Durch die Rückkopplung erhöht sich also die Stabilität der Verstärkungschaltung.
+Des Weiteren hängen Verstärkung $v$ und Bandbreite $B$, welche die maximale Frequenz angibt 
+ab welcher die Verstärkung abnimmt, über 
+\begin{equation*}
+    v \cdot B = \text{const.}
+\end{equation*}
+
+\subsection{Umkehr-Integrator}
+Die Schaltskizze des Umkehrintegrators ist in \autoref{fig:umkehrint} zu sehen.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{integrator.png}
+    \caption{Schaltskizze des Umkehr-Integrators \cite{anleitung}.}
+    \label{fig:umkehrint}
+\end{figure}
+Im Vergleich zur vorherigen Schaltung wird der Widerstand $R_2$ durch einen Kondensator $C$
+ersetzt.
+Dadurch wird die Eingangsspannung $U_e$ über die Zeit integriert zu
+\begin{equation*}
+    \int I_C \; \symup{d} t = C \cdot U_a.
+\end{equation*}
+Über die Knotenregel, sowie dem Zusammenhang $U = R \cdot I$ gibt sich für die Ausgangsspannung
+\begin{equation*}
+    U_a = - \frac{1}{RC} \int U_e (t) \symup{d} t
+\end{equation*}
+und damit für ein sinusförmiges Eingangssignal $U_e = U_0 \sin(\omega t)$
+\begin{equation*}
+    U_a = \frac{U_0}{\omega R C} \cos(\omega t).
+\end{equation*}
+Es ergibt sich also ein antiproportionaler Zusammenhang zwischen der Ausgangsspannung $U_a$
+und der Frequenz $\omega$. Allgemein können auch alle anderen Signale integriert werden.
+Bei Unstetigkeiten kann es dabei allerdings zum sogenannten Gibb'schen Phänomen kommen,
+also zu Überschwingungen an den Überschwingungen. 
+
+\subsection{Umkehr-Differentiator}
+Werden nun Kondensator und Widerstand aus der vorherigen Schaltung vertauscht, ergibt sich 
+ein Umkehr-Differentiator. Die Schaltung dazu ist in \autoref{fig:umkehrdiff}
+dargestellt.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{diff.png}
+    \caption{Schaltskizze des Umkehr-Differenzierers \cite{anleitung}.}
+    \label{fig:umkehrdiff}
+\end{figure}
+Mit der Kirchhoff'schen Regel ergibt sich
+\begin{equation*}
+    C \frac{\symup{d} U_e(t)}{\symup{d} t} + \frac{U_a(t)}{R} = 0
+\end{equation*}
+und damit durch Differentiation und Umstellen
+\begin{equation*}
+    U_a = - R C \frac{\symup{d}U_e}{\symup{d} t}
+\end{equation*}
+und damit wieder für ein sinusförmiges Signal 
+\begin{equation*}
+    U_a = - \omega R C U_0 \cos(\omega t).
+\end{equation*}
+Die Ausgangsspannung ist also direkt proportional zur Frequenz des Eingangssignals.
+
+\subsection{Nicht-invertierende Schmitt-Trigger}
+Um den Schmitt-Trigger zu bauen, wie in \autoref{fig:schmitt} zu sehen, wird eine sogenannte
+Mitkopplung auf den nicht-invertierenden Eingang über einen Widerstand, so erhält der
+Operationsverstärker die Eigenschaft eines Schalters.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{schmitt.png}
+    \caption{Schaltskizze des nicht-invertierenden Schmitt-Triggers \cite{anleitung}.}
+    \label{fig:schmitt}
+\end{figure}
+Dies bedeutet, dass der Operationsverstärker
+bei einem Schwellwert $U_{S_{+}}$ schlagartig den Sättigungswert $U_B$ annimmt.
+Andersherum nimmt die Ausgangsspannung den Sättigungswert $-U_B$ an, wenn der Schwellenwert 
+$U_{S_{-}}$ erreicht wird. Die Schwellspannungen sind 
+\begin{equation*}
+    U_{S_{\pm}} = U_{\pm} \frac{R_1}{R_2}.
+\end{equation*}
+
+\subsection{Signalgenerator}
+Durch Kombination von Schmitt-Trigger \autoref{fig:schmitt} und Integrator \autoref{fig:umkehrint}
+ist es möglich einen Signalgenerator zu bauen, wie er in \autoref{fig:signal} skizziert ist.
+Der Schmitt-Trigger liefert eine konstante Spannung $U_B$ bis der Schwellwert $U_{S_{-}}$
+unterschritten wird. Bei Verwenden eines sinusförmigen Signals gibt der Schmitt-Triggers
+ein Rechtecksignal aus. Der Integrator integriert die Spannung zu einer Dreiecksspannung, die dort 
+ebenfalls abgegriffen werden kann. Die Frequenz der Schwingung hat den Theoriewert
+\begin{equation*}
+    \nu_{\text{Dreieck}} = \frac{R_2}{4 C R_1 R_3}.
+\end{equation*}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{signalgenerator.png}
+    \caption{Schaltskizze des Signalgenerators \cite{anleitung}.}
+    \label{fig:signal}
+\end{figure}
+
+\subsection{Variierende Amplituden}
+Durch das hintereinanderschalten von zwei Integratoren und einem invertierenden Linearverstärker
+kann eine gedämpfte harmonische Schwingung erzeugt werden. Der Schaltskizze ist in 
+\autoref{fig:amplituden} dargestellt.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{integrator.png}
+    \caption{Schaltskizze für variierende Sinusamplituden \cite{anleitung}.}
+    \label{fig:amplituden}
+\end{figure}
+Diese Schwingung lässt sich durch die Differentialgleichung
+\begin{equation*}
+    \frac{\symup{d^2} U_a}{\symup{d} t^2} - \frac{\eta}{10 R C} \frac{\symup{d} U_a}{\symup{d} t} + \frac{1}{R^2 C^2} U_a = 0
+\end{equation*}
+beschreiben, dessen Lösung 
+\begin{equation*}
+    U_a (t) = U_0 \exp \left( \frac{\eta}{10 R C} \right) \sin \left(frac{t}{R C} \right)
+\end{equation*}
+ist.
+Dabei beschreibt $ -1 \leq \eta \geq 1 $ eine durch ein Potentiometer einstellbare Dämpfung.
+Die Schwingungsdauer $T$ ist gegeben durch den Sinusterm der Lösung zu
+\begin{equation*}
+    T = 2 \pi R C
+\end{equation*}
+und die Abklingdauer beziehungsweise Zunahmedauer ist gegeben durch den Exponentialterm zu
+\begin{equation*}
+    \tau = \frac{20 R C}{\vert \eta \vert}.
+\end{equation*}
