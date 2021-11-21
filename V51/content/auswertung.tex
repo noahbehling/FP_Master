@@ -62,6 +62,10 @@ woraus sich für die drei Messreihen die Werte
   f_{\mathrm{Grenz},1} = \SI{3.1 \pm 1.5 e3}{\kilo\hertz} && f_{\mathrm{Grenz},2} = \SI{2.1 \pm 1.0 e3}{\kilo\hertz} && f_{\mathrm{Grenz},3} = \SI{3 \pm 5 e3}{\kilo\hertz}
 \end{align*}
 ergeben.
+Für das Bandbreitenprodukt ergeben sich hiermit die Werte
+\begin{align*}
+  B_1 = \num{300758 \pm 146429} && B_2 = \num{312873 \pm 150069} && B_3 = \num{32884 \pm 52863}.
+\end{align*}
 
 Die Phasenverschiebung zwischen Ein- und Ausgangsspannung wird berechnet über $\Delta \phi = 2 \pi f \cdot \Delta t$ und ist in Abhängigkeit der Frequenz für alle drei Messreihen in \autoref{fig:phase} aufgetragen.
 
@@ -164,11 +168,24 @@ Bei einer Dreieck-Spannung als Eingangsspannung wird eine Rechteckspannung als A
 
 \subsection{Nicht-invertierender Schmitt-Trigger}
 
-Zur Untersuchung des Nicht-invertierenden Schmitt-Triggers werden die Widerstände $R_1 = \SI{1}{\kilo\ohm}$ und $R_2 = \SI{220}{\kilo\ohm}$ verbaut. Die Kipp-Spannung wurde bei $U_{\mathrm{e, Kipp}} = \SI{680}{\milli\volt}$ gefunden. In \autoref{fig:schmitt} ist der Verlauf der Ein- und Ausgangsspannung am Oszilloskop dargestellt.
+Zur Untersuchung des Nicht-invertierenden Schmitt-Triggers werden die Widerstände $R_1 = \SI{10}{\kilo\ohm}$ und $R_2 = \SI{220}{\kilo\ohm}$ verbaut. Die Kipp-Spannung wurde bei $U_{\mathrm{e, Kipp}} = \SI{680}{\milli\volt}$ gefunden. In \autoref{fig:schmitt_oszi} ist der Verlauf der Ein- und Ausgangsspannung am Oszilloskop dargestellt.
 
 \begin{figure}[H]
   \centering
   \includegraphics{data/ALL0066/F0066TEK.JPG}
-  \caption{}
-  \label{}
+  \caption{Oszilloskop-Bild des Schmitt-Triggers, wobei CH1 das Ausgangs- und CH2 das Eingangssignal zeigt.}
+  \label{fig:schmitt_oszi}
 \end{figure}
+
+Der theoretische Wert beträgt $U_{S_{\pm}} = \SI{0.6\bar{81}}{\volt}$.
+
+\subsection{Signalgenerator}
+In \autoref{fig:signalgenerator_oszi} ist der Spannungsverlauf der Eingangsspannung und der Ausgangsspannung an einem Signalgenerator zu sehen.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{signalgen.png}
+  \caption{Ein- (grün) und Ausgangssignal (gelb) an einem Signalgenerator.}
+  \label{fig:signalgenerator_oszi}
+\end{figure}
+Am aufsteigenden Ast der Ausgangsspannung ist wie zu erwarten ein Dreieck-Signal zu erkennen. Der abfallende Ast hingegen besteht vor Allem aus Unstetigkeiten und einem Rechteck-Signal. Hier versagt folglich der Integrator.

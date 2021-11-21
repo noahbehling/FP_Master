@@ -1,1 +1,55 @@
-\section{Anhang}
+\section{Aufgenommene Messwerte}
+In diesem Abschnitt sind die aufgenommenen Messwerte zu den verschiedenen Messreihen tabellarisch aufgeführt.
+
+\begin{table}[H]
+  \centering
+  \caption{Erste Messreihe zum invertierenden Linearverstärkers.}
+  \label{tab:lin_1}
+  \pgfplotstabletypesetfile[
+  display columns/0/.style = {column name = $f$/$\si{\kilo\hertz}$},
+  display columns/1/.style = {column name = $U_\mathrm{a}$/$\si{\volt}$},
+  display columns/2/.style = {column name = $\Delta t$/$\si{\micro\second}$}
+  ]{data/linearverstaerker_1.txt}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Zweite Messreihe zum invertierenden Linearverstärkers.}
+  \label{tab:lin_2}
+  \pgfplotstabletypesetfile[
+  display columns/0/.style = {column name = $f$/$\si{\kilo\hertz}$},
+  display columns/1/.style = {column name = $U_\mathrm{a}$/$\si{\volt}$},
+  display columns/2/.style = {column name = $\Delta t$/$\si{\micro\second}$}
+  ]{data/linearverstaerker_2.txt}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Dritte Messreihe zum invertierenden Linearverstärkers.}
+  \label{tab:lin_3}
+  \pgfplotstabletypesetfile[
+  display columns/0/.style = {column name = $f$/$\si{\kilo\hertz}$},
+  display columns/1/.style = {column name = $U_\mathrm{a}$/$\si{\volt}$},
+  display columns/2/.style = {column name = $\Delta t$/$\si{\micro\second}$}
+  ]{data/linearverstaerker_3.txt}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Aufgenommene Messwerte zur Untersuchung des Integrators.}
+  \label{tab:int}
+  \pgfplotstabletypesetfile[
+  display columns/0/.style = {column name = $f$/$\si{\kilo\hertz}$},
+  display columns/1/.style = {column name = $U_\mathrm{a}$/$\si{\volt}$},
+  ]{data/integrator.txt}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Aufgenommene Messwerte zur Untersuchung des Differenzierers.}
+  \label{tab:diff}
+  \pgfplotstabletypesetfile[
+  display columns/0/.style = {column name = $f$/$\si{\kilo\hertz}$},
+  display columns/1/.style = {column name = $U_\mathrm{a}$/$\si{\volt}$},
+  ]{data/differenzierer.txt}
+\end{table}
