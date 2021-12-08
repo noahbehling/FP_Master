@@ -1,0 +1,30 @@
+{
+    "Detektorscan": {
+        "Ausgleichsrechnung": {
+            "a": "( 1.064+/-0.013)e+05",
+            "b": "( 1.09+/-0.27)e+04",
+            "sigma[degree]": " 0.04413+/-0.00058",
+            "mu[degree]": "-0.00166+/-0.00055"
+        },
+        "I_max_gemessen": " 9.8431e+05",
+        "I_max_gauss": " 9.7272e+05",
+        "Halbwertsbreite[degree]": " 1.0477e-01",
+        "Halbwertsbreite_gauss[degree]": " 1.0392e-01"
+    },
+    "Z-Scan": {
+        "d_0[mm]": 0.24
+    },
+    "Rockingscan": {
+        "alpha_g_l[degree]": -0.68,
+        "alpha_g_r[degree]": 0.68,
+        "alpha_g[degree]": 0.68,
+        "alpha_g_berechnet[degree]": 0.6875658564108561,
+        "Geofaktor": 52.39941866820572
+    },
+    "Messung": {
+        "delta_a_mean[degree]": "0.000890+/-0.000033",
+        "d[m]": "(8.65+/-0.32)e-08",
+        "a_c2[degree]": 0.0627643817783151,
+        "a_c3[degree]": 0.19847840235184516
+    }
+}

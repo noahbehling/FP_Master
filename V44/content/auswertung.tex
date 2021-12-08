@@ -1,1 +1,138 @@
 \section{Auswertung}
+Die hier durchgeführte Datenanalyse wurde mithilfe der \textit{Python} 3.8.0 Bibliothek
+\textit{Numeric Python} \cite{numpy} erstellt und mit \textit{matplotlib} \cite{matplotlib} grafisch
+dargestellt. Des Weiteren wird die Bibliothek \textit{uncertainties} \cite{uncertainties} genutzt,
+um die Fehlerrechnung zu automatisieren.
+Zunächst werden Scans, welche bei der Justierung aufgenommen wurden, ausgewertet und 
+aus ihnen Konstanten bestimmt, welche für die weitere Auswertung nötig sind.
+\subsection{Detektorscan}
+Zunächst werden im Detektorscan die Halbwertsbreite und die maximale Intensität bestimmt.
+Dazu wird eine Gaußfunktion der Form 
+\begin{equation*}
+    I(\alpha) = \frac{a}{\sqrt{2 \pi \sigma^2}} \cdot \exp\left(- \frac{(\alpha - \mu)^2}{2\sigma^2}\right) + b 
+\end{equation*}
+an die Messwerte angepasst. Eine Darstellung der Messwerte und der Ausgleichskurve ist in 
+\autoref{fig:detektor} zu sehen.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\textwidth]{build/plot_detektorscan.pdf}
+    \caption{Messwerte des Detektorscans mit Ausgleichskurve und eingezeichneter Halbwertsbreite.}
+    \label{fig:detektor}
+\end{figure}
+Mittels der \textit{Python}-Bibliothek \textit{SciPy} \cite{scipy} ergeben sich die Parameter
+der Gaußfunktion zu 
+\begin{align*}
+    a &= ( 1,06 \pm 0,01)\cdot 10^5 \\
+    b &= ( 1,1 \pm 0,3) \cdot 10^4 \\
+    \sigma &= (0.0441 \pm 0.0006)° \\
+    \mu &= (-0,0017 \pm 0.0005)°.
+\end{align*}
+Mittels der angelegten Gaußkurve ergibt sich die Halbwertsbreite FWHM, sowie die maximale 
+Intensität $I_{\text{max}}$ zu 
+\begin{align*}
+    I_{\text{max}} &= (9,7 \pm 0,2)\cdot 10^5 \\
+    \text{FWHM} &= (0,105 \pm 0,001)°.
+\end{align*}
+
+\subsection{Z-Scan}
+Aus dem ersten durchgeführten Z-Scan kann die Strahlbreite ermittelt werden. Dazu wird die 
+abfallende Intensität die auftritt, wenn die Probe in den Strahl gefahren wird. Dargestellt ist dies 
+in \autoref{fig:z-scan}. Die Strahlbreite entspricht dann dem geringsten Abstand zwischen
+maximaler Intensität (wenn der Strahl die Probe noch nicht trifft) und minimaler Intensität
+(wenn der komplette Strahl die Probe trifft).
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/plot_zscan.pdf}
+    \caption{Messwerte des ersten Z-Scans mit eingezeichneter Strahlbreite.}
+    \label{fig:z-scan}
+\end{figure}
+Die Strahlbreite ergibt sich dadurch zu 
+\begin{equation*}
+    d_0 \approx 0,24\; \symup{mm}.
+\end{equation*} 
+
+\subsection{Rockingscan}
+Der erste durchgeführte Rockingscan ist in \autoref{fig:Rockingscan} zu sehen. Aus diesem lassen
+die Geometriewinkel $\alpha_g$ ablesen. 
+\begin{figure}
+    \centering 
+    \includegraphics[width=0.8\textwidth]{build/plot_rockingscan}
+    \caption{Rockingscan mit $2 \alpha = 0$ und eingezeichnete Geometriewinkel.}
+    \label{fig:Rockingscan}
+\end{figure}
+Der gemessene Geometriewinkel ist 
+\begin{equation*}
+    \alpha_g = 0,68°.
+\end{equation*}
+Mit der Strahlbreite $d_0$ und der Probenlänge $D = 20\;\symup{mm}$ ergibt sich über 
+\autoref{eqn:geofaktor} der theoretische Wert
+\begin{equation*}
+    \alpha_{\text{Theorie}} = 0,6876°.
+\end{equation*}
+
+\subsection{Reflektivitätsscan}
+Mittels des aufgenommenen Reflektivitätsscan wird die Probe untersucht. Zunächst wird dazu der 
+diffuse Scan vom Reflektivitätsscan abgezogen um Effekte durch Rückstreeung zu vermeiden und so 
+die tatsächliche Reflektivität zu bestimmen. Dies ist in \autoref{fig:messung}
+dargestellt. Des Weiteren ist die Reflektivität mit der Korrektur durch den über 
+\autoref{eqn:geofaktor} berechneten Geometriefaktor zu sehen. Mit dieser wird auch im Folgenden 
+weiter gerechnet. Zum Vergleich mit theoretischen Werten ist außerdem die Kurve der Fresnelreflektivität 
+einer idealen glatten Siliziumoberfläche zu sehen. Diese wird über 
+\autoref{eqn:fresnel} bestimmt, wobei der Literaturwert des kritischen Winkels $\alpha_{\text{Si}} = 0,223°$ \cite{tolan} ist.
+Außerdem ist zu Beachten, dass statt der Intensität $I$ die Reflektivität $R$ verwendet wird,
+mit
+\begin{equation*}
+    R = \frac{I}{5 \cdot I_{\text{max}}}.
+\end{equation*}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/plot_reflektivitaet.pdf}
+    \caption{Gemessene Reflektivität, Korrektur mit dem Geometriefaktor und theoretische Fresnelreflektivität von idealem, glatten Silizium aufgetragen gegen den Winkel.}
+    \label{fig:messung}
+\end{figure}
+
+Um die Schichtdicke der Polystyrolschicht zunächst abzuschätzen werden die Abstände der Minima der Kiessig-Oszillationen $\Delta \alpha_i$
+bestimmt und gemittelt. Dazu wird wiederum die \textit{Python}-Bibliothek \textit{SciPy} \cite{scipy}
+verwendet. Die gefundenen Minima sind ebenfalls in \autoref{fig:messung} eingezeichnet.
+Es ist zu Beachten, dass nur Minima im Bereich $\alpha = [0,3°; 1,4°]$, also in welchem 
+die Minima noch gut findbar sind, verwendet werden.
+Der gemittelte Abstand der Minima ergibt sich zu 
+\begin{equation*}
+    \Delta \alpha = (8,9 \pm 0,3) \cdot 10^{-4}°
+\end{equation*}
+und damit über \autoref{eqn:abstandoderso} mit der Wellenlänge der $K_{\alpha 1}$-Linie 
+$\lambda = 1,541 \cdot 10^{-10} \; \symup{m}$ eine Schichtdicke von
+\begin{equation*}
+    (8,7 \pm 0,3)\cdot 10^{-8} \; \symup{m}.
+\end{equation*}
+
+\subsection{Bestimmung des Dispersionsprofils mit dem Parratt-Algorithmus}
+Mittels des Parratt-Algorithmus \cite{parratt} lässt sich das Dispersionsprofil der Probe bestimmen.
+Dazu werden modifizierte Fresnelkoeffizienten verwendet um die Rauigkeit der Probe mit 
+einzubeziehen. Das hier verwendete Programm ist in \autoref{sec:anhang} zu sehen.
+Es werden dabei zwei Schichten betrachtet; eine Schicht aus Polystyrol und eine Schicht 
+aus Silizium.
+Des Weiteren wird die Umgebungsluft als erste Schicht mit einer Schichtdicke und Dispersion 
+von $\delta = d = 0$ angenommen.
+Die so berechnete Reflektivität wird mit der gemessenen, korrigierten Reflektivität 
+und über Parameter manuell angepasst um eine möglichst gute Übereinstimmung zu erhalten. 
+Die endgültige Kurve ist in \autoref{fig:parratt} zu sehen. Die verwendeten Parameter lauten
+\begin{align*}
+    \delta_{\text{Poly}} &= 6 \cdot 10^{-7} \\
+    \delta_{\text{Si}} &= 6 \cdot 10^{-6} \\
+    \sigma_{\text{Luft, Poly}} &= 5,5 \cdot 10^{-10} \;\symup{m}  \\ 
+    \sigma_{\text{Poly, Si}} &= 6,5 \cdot 10^{-10} \;\symup{m}  \\
+    d_2 &= 8,6 \cdot 10^{-8} \;\symup{m}. 
+\end{align*}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{build/plot_messung.pdf}
+    \caption{Darstellung der Parratt-Reflektivität im Vergleich zur gemessenen Reflektivität mit eingezeichneten kritischen Winkeln.}
+    \label{fig:parratt}
+\end{figure}
+Des Weiteren können die kritischen Winkel von Silizium und Polystyrol über \autoref{eqn:nocheine} zu 
+\begin{align*}
+    \alpha_{\text{c, Pol}} &= 0,063°\\
+    \alpha_{\text{c, Si}} &= 0,198°
+\end{align*}
+bestimmt werden. Diese Werte sind ebenfalls in \autoref{fig:parratt} dargestellt.
