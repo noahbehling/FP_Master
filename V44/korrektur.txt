@@ -1,0 +1,22 @@
+2.1:
+- Brechindex oder Brechungsindex
+- Aufgrund des Snellius-Brechungsgesetz[es]
+- der Satz dazu macht keinen Sinn
+- der danach ist seehr lang; vlt kürzen
+
+2.2:
+- erster Satz: ... dar[]stellt.
+- zweiter Satz: da passt was nicht ganz ich glaube das "eines"
+- zu Gleichung 3: das würde auch für Maxima funktionieren meine ich; also vlt lieber Periodenlänge(?)
+- Bei Sy[]stemen aus mehr als..
+- Da die durch die letzte... nicht weiter reflektiert [wird], aber passt dann trotzdem nicht
+- Hierzu wird zunächst die... Da fehlen "; würde aber vlt generrell kursiv stattdessen nehmen
+
+2.3:
+Letzter Satz: Ist doof mit Formel anzufangen: lieber "der term" oder so
+
+3:
+- Zur Bedienung der Appara[]tur
+- "XRD Commander" danach Leerzeichen
+- bei File Exchange sind die " komplett kaputt
+- 
