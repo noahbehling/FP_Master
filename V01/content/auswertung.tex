@@ -1,1 +1,118 @@
 \section{Auswertung}
+
+Zur Bestimmung der Lebensdauer von Myonen beträgt die Messzeit $ t_\mathrm{Mess} = \SI{180899}{\second} \approx \SI{50.25}{\hour}$. Hierbei wurden $N_\mathrm{Start} = \num{3648888}$ Start- und $N_\mathrm{Stopp} = \num{17157}$ Stoppimpulse registriert. Die Zahl der aktiven Kanäle, also der Kanäle mit mindestens einem Eintrag und zwischen zwei Kanälen mit mindestens einem Eintrag, beträgt $N_{\mathrm{Channel}} = \num{8063}$.
+
+\subsection{Bestimmung der Halbwertsbreite}
+% Verzögerung:
+% Gemittelte maximale Anzahl an Counts 333+/-7
+% Fit-Parameter linke Flanke:  [42.06659674890973+/-3.2873204233295454
+%  391.44205558553966+/-19.636565440373012]
+%  Werte half maximum links:  -5.3+/-0.6
+% Fit-Parameter rechte Flanke:  [-37.154168816868406+/-1.279995774877629
+%  394.26743557684085+/-7.645960090431173]
+%  Werte half maximum rechts:  6.13+/-0.31
+% Halbwertsbreite:  11.5+/-0.7  ns
+Zur Justage der Koinzidenzapparatur wird die Verzögerung $\Delta t = \Delta t_2 - \Delta t_1$ systematisch variiert, wobei $\Delta t_i$ die an der jeweiligen Verzögerungsleitung eingestellte Verzögerung ist. Die hierzu aufgenommenen Messwerte sind \autoref{tab:verz} zu entnehmen.
+Da kein eindeutiges Maximum vorliegt, wird der Mittelwert der gemessenen Counts im Bereich $\SI{-1.5}{\ns} \leq \Delta t \leq \SI{1.5}{\ns}$ bestimmt. Dieser lautet
+\begin{equation*}
+  \bar{N}_\mathrm{max} = \num{333 \pm 7}.
+\end{equation*}
+Zur Bestimmung der Halbwertsbreite durch beide Flanken eine Ausgleichsgerade
+\begin{equation*}
+  N(\Delta t) = a \cdot \Delta t + b
+\end{equation*}
+gelegt. Die Messwerte, sowie die Ausgleichsgeraden, sind in \autoref{fig:verz} grafisch dargestellt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{plots/HWB.pdf}
+  \caption{Counts als Funktion der Verzögerung zwischen den beiden in die Koinzidenzapparatur laufenden Leitungen.}
+  \label{fig:verz}
+\end{figure}
+
+Für die linke Flanke wird der Bereich $\SI{-10}{\nano\second} \leq \Delta t \leq \SI{-1.5}{\ns}$ und für die rechte Flanke der Bereich $\SI{1.5}{\ns} \leq \Delta t \leq \SI{10}{\ns}$ betrachtet. Die berechneten Fit-Parameter lauten
+\begin{align*}
+  a_\mathrm{links} &= \SI{42.1 \pm 3.3}{\per\ns} & a_\mathrm{rechts} &= \SI{-37.2 \pm 1.3}{\per\ns} \\
+  b_\mathrm{links} &= \num{391.4 \pm 19.6} & b_\mathrm{rechts} = \num{394.3 \pm 7.6}.
+\end{align*}
+Die daraus ermittelten Werte, bei denen das halbe Maximum erreicht ist, lauten
+\begin{align*}
+  \Delta t_\mathrm{links} &= \SI{-5.3 \pm 0.6}{\ns} & \Delta t_\mathrm{rechts} &= \SI{6.1 \pm 0.31}{\ns}.
+\end{align*}
+Folglich gilt für die Halbwertsbreite
+\begin{equation*}
+  \Delta t_\mathrm{HWB} = \SI{11.5 \pm 0.7}{\ns}.
+\end{equation*}
+
+\subsection{Bestimmung der Untergrundrate}
+%  Untergrundratenbestimmung:
+% Myonenfrequenz:  20.171+/-0.011  pro Sekunde
+% Untergrundrate:  809.8+/-0.8
+% Untergrundrate pro Channel:  0.10043+/-0.00011
+Die Zahl der Myonen, die pro Sekunde durch den Szintillatortank fliegen, lautet
+\begin{equation*}
+  \nu = \frac{N_\mathrm{Start}}{t_\mathrm{Mess}} = \SI{20.17 \pm 0.011}{\per\second}.
+\end{equation*}
+Die Wahrscheinlichkeit, dass $k$ weitere Myonen während der Suchzeit $t_\mathrm{Such} = \SI{11}{\micro\second}$ in den Szintillatortank eintreten, lässt sich über eine Poisson-Verteilung
+\begin{equation*}
+  P(k) = \frac{(t_\mathrm{Such} \cdot \nu)^k}{k!} \exp (t_\mathrm{Such} \nu)
+\end{equation*}
+beschreiben.
+Für die Untergrundrate, also die Zahl der Signale, die durch den Eintritt eines zweiten Myons erzeugt wurden, gilt demnach
+\begin{equation*}
+  N_\mathrm{Untergrund} = N_\mathrm{Start} \cdot P(1) = \num{809.8 \pm 0.8},
+\end{equation*}
+beziehungsweise
+\begin{equation*}
+  N_\mathrm{Untergrund,norm} = \frac{N_\mathrm{Untergrund}}{N_\mathrm{Channel}} = \num{0.1004 \pm 0.00011} \frac{1}{\mathrm{Channel}}.
+\end{equation*}
+
+\subsection{Kalibrierung des Vielkanalanalysators}\label{chap:MCA}
+%  MCA Kalibrierung:
+% a = 0.00135523+/-0.00000030, b = 0.1372+/-0.0013
+%
+Zur Kalibrierung des Vielkanalanalysators wird der korrespondierende Kanal des zeitlichen Abstandes zweier Impulse aufgezeichnet. Werden mehrere Kanäle angesteuert, werden die jeweiligen Kanäle mitsamt den jeweiligen Counts aufgenommen, sodass ein gewichtetes Mittel bestimmt werden kann. Die aufgenommenen Messwerte sind \autoref{tab:puls} zu entnehmen. Durch die gewichteten Mittelwerte der Kanalnummern als Funktion des Pulsabstandes wird eine Ausgleichsgerade
+\begin{equation*}
+  \mathrm{Kanalnummer} (\Delta t_\mathrm{Puls}) = a \Delta t_\mathrm{Puls} + b
+\end{equation*}
+gelegt, sodass den Kanalnummern ein zeitlicher Abstand zugeordnet werden kann. Die Messwerte und die Ausgleichsgerade sind in \autoref{fig:puls} grafisch dargestellt.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm, keepaspectratio]{plots/Kalibrierung.pdf}
+  \caption{Gewichtete Mittelwerte der Kanalnummern in Abhängigkeit von dem zeitlichen Abstand zweier Impulse eines Doppelimpulsgenerators.}
+  \label{fig:puls}
+\end{figure}
+
+Die ermittelten Fit-Parameter lauten hierbei
+\begin{align*}
+  a &= \SI{0.0013552 \pm 0.0000003}{\per\micro\second} & b &= \num{0.137 \pm 0.0013}.
+\end{align*}
+
+\subsection{Bestimmung der Lebensdauer von Myonen}
+%  Lebensdauer Bestimmung:
+% 9.94+/-0.09 0.478+/-0.008 0.107+/-0.028
+% Lebensdauer = 2.092+/-0.033
+
+Die Zahl der registrierten Ereignisse je Channel sind \autoref{tab:data} zu entnehmen. Die jeweiligen Kanalnummern werden über die in \autoref{chap:MCA} bestimmten Parameter in zeitliche Abstände umgerechnet und durch diese wird eine Augleichsfunktion der Form
+\begin{equation*}
+  N(\Delta t) = N_0 \cdot \exp (- \lambda \cdot \Delta t) + N_\mathrm{Untergrund}
+\end{equation*}
+gelegt, wie in \autoref{fig:data} zu sehen ist.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=12cm,keepaspectratio]{plots/lebensdauer.pdf}
+  \caption{Registrierte Myon-Zerfälle im Szintillatortank in Abhängigkeit von der Zeit zwischen Eintritt des Myons in den Tank und Zerfall des Myons im Tankvolumen.}
+  \label{fig:data}
+\end{figure}
+Bei der Ausgleichsrechnung werden die ersten 65 Kanäle nicht berücksichtigt, da diese kein Signal enthalten. Für die Fit-Parameter ergibt sich
+\begin{align*}
+  N_0 &= \num{9.94 \pm 0.09} \\
+  \lambda &= \SI{0.478 \pm 0.008}{\per\micro\second} \\
+  N_\mathrm{Untergrund} &= \num{0.11 \pm 0.028} \frac{1}{\mathrm{Channel}}
+\end{align*}
+und somit lautet die bestimmte Lebensdauer der Myonen
+\begin{equation*}
+  \tau = \frac{1}{\lambda} = \SI{2.09 \pm 0.033}{\micro\second}.
+\end{equation*}

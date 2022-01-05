@@ -1,2 +1,56 @@
 \section{Anhang}
 \label{sec:anhang}
+\subsection{Aufgenommene Messwerte}
+
+In diesem Abschnitt sind die zur Auswertung aufgenommenen Messwerte tabellarisch aufgeführt.
+
+\begin{table}[H]
+  \centering
+  \caption{Zahl der gemessenen Signale in Abhängigkeit der Verzögerung zur Justage der Koinzidenzapparatur.}
+  \label{tab:verz}
+  \pgfplotstabletypesetfile[
+  columns = {0, 1, 0, 1},
+  display columns/0/.style = {column name = $\Delta t \, \si{\nano\second}$, select equal part entry of={0}{2}},
+  display columns/1/.style = {column name = Counts, select equal part entry of={0}{2}},
+  display columns/2/.style = {column name = $\Delta t \, \si{\nano\second}$, select equal part entry of={1}{2}},
+  display columns/3/.style = {column name = Counts, select equal part entry of={1}{2}}
+  ]{data/verzoegerung_comma.txt}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Kanalnummer in Abhängigkeit des Abstands zwischen zwei Impulsen. Bei mehreren aktiven Kanälen außerdem Zahl der Ereignisse je Kanal.}
+  \label{tab:puls}
+  \pgfplotstabletypesetfile[
+  display columns/0/.style = {column name = $\Delta t_\mathrm{Puls}$},
+  display columns/1/.style = {column name = Kanal 1},
+  display columns/2/.style = {column name = Counts (Kanal 1)},
+  display columns/3/.style = {column name = Kanal 2},
+  display columns/4/.style = {column name = Counts (Kanal 2)},
+  display columns/5/.style = {column name = Kanal 3},
+  display columns/6/.style = {column name = Counts (Kanal 3)},
+  ]{data/puls_comma.txt}
+\end{table}
+
+% \begin{table}[H]
+%   \centering
+%   \caption{Zahl der gemessen Doppelsignale im Szintillatortank in den einzelnen Kanälen.}
+%   \label{tab:data}
+%   \pgfplotstabletypesetfile[
+%   display columns/0/.style = {column name = $\Delta t \, \si{\nano\second}$},
+%   display columns/1/.style = {column name = Counts}
+%   ]{channel_daten.txt}
+% \end{table}
+
+  \pgfplotstabletypesetfile[
+  every head row/.append style = {before row = \caption{Zahl der gemessen Doppelsignale im Szintillatortank in den einzelnen Kanälen.}\label{tab:data} \\ \toprule, after row = \midrule},
+  % every first row/.append style = {before row={\multicolumn{2}{c}{}\\ \caption[]{Zahl der gemessen Doppelsignale im Szintillatortank in den einzelnen Kanälen.}\\\toprule},after row=\midrule\endhead},
+  columns = {0, 1, 0, 1, 0, 1},
+  display columns/0/.style = {column name = Kanalnummer, select equal part entry of={0}{3}},
+  display columns/1/.style = {column name = Counts, select equal part entry of={0}{3}},
+  display columns/2/.style = {column name = Kanalnummer, select equal part entry of={1}{3}},
+  display columns/3/.style = {column name = Counts, select equal part entry of={1}{3}},
+  display columns/4/.style = {column name = Kanalnummer, select equal part entry of={2}{3}},
+  display columns/5/.style = {column name = Counts, select equal part entry of={2}{3}},
+  ]
+  {data/channel_daten.txt}
