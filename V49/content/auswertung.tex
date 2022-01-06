@@ -1,5 +1,5 @@
 \section{Auswertung}
-Da es Ziel des Versuches ist den Diffusionskoeffizienten $D$ zu berechnenen müssen zunächst die beiden 
+Da es Ziel des Versuches ist, den Diffusionskoeffizienten $D$ zu berechnenen müssen zunächst die beiden 
 Relaxationszeiten $T_1$ und $T_2$ bestimmt werden. In einem letzten, vergleichenden Schritt wird dann 
 der Molekülradius von Wasser bestimmt.
 Zu Beginn beträgt die Temperatur an der Probenposition $T = 22,4\,\symup{°C}$. 
@@ -7,11 +7,11 @@ Zu Beginn beträgt die Temperatur an der Probenposition $T = 22,4\,\symup{°C}$.
 Zur Berechnung der Relaxationszeit $T_1$ wird zunächst ein 180°-Puls durchgeführt, woraufhin ein 90°-Puls 
 nach der Zeitspanne $\tau$ folgt. Die dadurch gemessenen Spannungen sind für verschiende $\tau$ in \autoref{tab:t1} im Anhang
 zu sehen. \\
-Nach GLEICHUNG wird eine Ausgleichskurve der Form 
+Nach \autoref{eq:T1} wird eine Ausgleichskurve der Form 
 \begin{equation*}
     M(\tau) = M_0 \cdot \exp \left( -\frac{\tau}{T_1} \right) + M_1
 \end{equation*}
-bestimmt. Hierzu und auch für folgende Rechnunegn wird die Python 3.8 Bibliothek \textit{SciPy}\cite{scipy}
+bestimmt. Hierzu und auch für folgende Rechnungen wird die Python 3.8 Bibliothek \textit{SciPy}\cite{scipy}
 verwendet. Die Datenpunkte, sowie die Ausgleichskurve sind in \autoref{fig:T1} grafisch dargestellt.
 Die Ausgleichsparameter ergeben sich zu 
 \begin{align*}
@@ -31,7 +31,7 @@ Zu Beginn dieser Messung wurde eine Temperatur von $T = 21,7 \, \symup{°C}$ an 
 Zur Bestimmung der Spin-Spin Relaxationszeit $T_2$ wird hier die Meiboom-Gill Methode verwendet.
 Der gemessene Amplitudenverlauf in Abhängigkeit der Zeit ist in \autoref{fig:T2} dargestellt.
 Mittels der Python 3.8 Bibliothek \textit{SciPy}\cite{scipy} werden die Maxima des Verlaufs gefunden.
-Durch diese wird nach GLEICHUNG eine Ausgleichskurve der Form 
+Durch diese wird nach \autoref{eq:T2} eine Ausgleichskurve der Form 
 \begin{equation*}
     M(t) = M_0 \cdot \exp \left(-\frac{t}{T_2} \right) + M_1
 \end{equation*}
@@ -48,7 +48,7 @@ Die Ausgleichsparameter ergeben sich zu
     \caption{Darstellung der gemessenen Spannungen mit eingezeichneten Maxima und Ausgleichskurve zur Bestimmung von $T_2$.}
     \label{fig:T2}
 \end{figure}
-Um genauere Ergebnisse zu erhalten wäre eine exakte Einstellung der Pulslänge für den 180°-Puls notwendig.
+Um genauere Ergebnisse zu erhalten, wäre eine exakte Einstellung der Pulslänge für den 180°-Puls notwendig.
 Diese Carr-Purcell Methode ist in der Praxis allerdings nicht umsetzbar und würde zu großen Fehlern führen.
 Eine so getätigte Messung ist in \autoref{fig:mgoff}
 zu sehen. Mit diesen Daten lässt sich $T_2$ nicht bestimmen.
@@ -60,7 +60,7 @@ zu sehen. Mit diesen Daten lässt sich $T_2$ nicht bestimmen.
 \end{figure}
 
 \subsection{Bestimmung des Diffusionskoeffizienten}
-Zur Bestimmung des Diffusionskoeffizienten $D$ über GLEICHUNG werden sowohl die Gradientenstärke $G$
+Zur Bestimmung des Diffusionskoeffizienten $D$ über \autoref{eq:D} werden sowohl die Gradientenstärke $G$
 als auch die Zeitkonstante $T_D$ benötigt. Beide Größen lassen sich im Folgenden bestimmen.
 Vor dieser Messung lag die Temperatur bei $T = 21,4 \, \symup{°C}$\\
 
@@ -86,7 +86,7 @@ Der Durchmesser des Halbkreises ist dabei ungefähr
 \begin{equation*}
     d_f \approx 14174,72 \,\frac{1}{\symup{s}}.
 \end{equation*}
-Damit ergibt sich über GLEICHUNG die Gradientenstärke zu 
+Damit ergibt die Gradientenstärke zu 
 \begin{equation*}
     G = \frac{2 \pi \cdot d_f}{\gamma \cdot d} = 0,079 \, \frac{\symup{T}}{\symup{m}},
 \end{equation*}
@@ -97,11 +97,11 @@ Die Zeitkonstante $T_D$ lässt sich über die Messwerte aus \autoref{tab:diff} b
 Zunächst wird dabei eine rein quantitave Überprüfung der Messwerte vorgenommen.
 Dazu wird eine lineare Regression der Form 
 \begin{equation*}
-     \text{ln}(M(\tau)) - 2\tau /T_2 = a \tau**3 + b
+     \text{ln}(M(\tau)) - 2\tau /T_2 = a \tau^3 + b
 \end{equation*}     
 durchgeführt,
 was in \autoref{fig:quanti} zu sehen ist.
-Wie zu sehen, folgen die gemessenen Werte der Gerade sehr grob, wobei der erste Wert aus \autoref{tab:diff}
+Wie zu sehen ist, folgen die gemessenen Werte der Gerade sehr grob, wobei der erste Wert aus \autoref{tab:diff}
 hierbei rausgenommen wurde und auch im folgenden Auswertungsteil weggelassen wird, da die Abweichung zur Gerade 
 sehr groß war.
 Die Parameter ergeben sich zu 
@@ -131,7 +131,7 @@ Die Ausgleichsparameter lauten
     M_1 &= (0,053 \pm 0,005) \, \symup{V} \\
     H   &= (649846 \pm 15884) \, \frac{1}{\symup{s^3}}.
 \end{align*}
-Mit GLEICHUNG ergibt sich dadurch der Diffusionskoeffizient zu
+Mit \autoref{eq:D} ergibt sich dadurch der Diffusionskoeffizient zu
 \begin{equation*}
     D = \frac{3 H}{2 \gamma^2 G^2} = (2,18 \pm 0,05 ) \cdot 10^{-9} \, \frac{\symup{m^2}}{\symup{s}}.
 \end{equation*}
@@ -143,7 +143,7 @@ Mit GLEICHUNG ergibt sich dadurch der Diffusionskoeffizient zu
 \end{figure}
 
 \subsection{Berechnung des Molekülradius}
-Der Molekülradius von Wasser wird mittels der Einstein-Stokes-Formel GLEICHUNG berechnet. 
+Der Molekülradius von Wasser wird mittels der Einstein-Stokes-Formel \autoref{eq:R0} berechnet. 
 Die verwendete Viskosität des Wassers ist $\eta = 1002 \cdot 10^{-6}\, \frac{\symup{kg}}{\symup{m s}}$ \cite{visko}
 bei 20\,°C. Zum Zeitpunkt des Versuchs wurde eine Temperatur von $21,4\, °\symup{C}$ gemessen.
 Trotz der Temperaturdiskrepanz zwischen gemessener Temperatur und zur Viskosität gehörender Viskosität 
@@ -151,8 +151,8 @@ wird hier mit diesem Wert gearbeitet. Der Molekülradius ergibt sich somit zu
 \begin{equation*}
     r_{\text{gem}} = (0,98 \pm 0,02) \, \symup{\mathring{A}}. 
 \end{equation*} 
-Eine andere Möglichkeit den Molekülradius zu berechnen ergibt sich über die Dichte $\rho = 998,21 \,\frac{\symup{kg}}{\symup{m}^3}$
-und dem Molekulardichte $M_W = 0,0180152 \, \frac{symup{kg}}{\symup{mol}}$ von Wasser\cite{visko}.
+Eine andere Möglichkeit, den Molekülradius zu berechnen ergibt sich über die Dichte $\rho = 998,21 \,\frac{\symup{kg}}{\symup{m}^3}$
+und der Molekulardichte $M_W = 0,0180152 \, \frac{\symup{kg}}{\symup{mol}}$ von Wasser\cite{visko}.
 Dabei wird angenommen, dass hexagonal dichteste Kugelpackungen vorliegen, also eine Raumfüllung von $74\%$.
 \begin{equation*}
     r_{\text{hdk}} = \sqrt[3]{\left( \frac{M_W}{4/3 \pi \rho N_A}  \right)} = 1,74 \, \symup{\mathring{A}},
