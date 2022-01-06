@@ -94,11 +94,11 @@ mit
 Um die Schichtdicke der Polystyrolschicht zunächst abzuschätzen werden die Abstände der Minima der Kiessig-Oszillationen $\Delta \alpha_i$
 bestimmt und gemittelt. Dazu wird wiederum die \textit{Python}-Bibliothek \textit{SciPy} \cite{scipy}
 verwendet. Die gefundenen Minima sind ebenfalls in \autoref{fig:messung} eingezeichnet.
-Es ist zu Beachten, dass nur Minima im Bereich $\alpha = [0,3°; 1,4°]$, also in welchem 
+Es ist zu Beachten, dass nur Minima im Bereich $\alpha = [0,3°; 1,0°]$, also in welchem 
 die Minima noch gut findbar sind, verwendet werden.
 Der gemittelte Abstand der Minima ergibt sich zu 
 \begin{equation*}
-    \Delta \alpha = (8,9 \pm 0,3) \cdot 10^{-4}°
+    \Delta \alpha = (8,9 \pm 0,3) \cdot 10^{-4}\,°
 \end{equation*}
 und damit über \autoref{eqn:abstandoderso} mit der Wellenlänge der $K_{\alpha 1}$-Linie 
 $\lambda = 1,541 \cdot 10^{-10} \; \symup{m}$ eine Schichtdicke von
@@ -122,8 +122,11 @@ Die endgültige Kurve ist in \autoref{fig:parratt} zu sehen. Die verwendeten Par
     \delta_{\text{Si}} &= 6 \cdot 10^{-6} \\
     \sigma_{\text{Luft, Poly}} &= 5,5 \cdot 10^{-10} \;\symup{m}  \\ 
     \sigma_{\text{Poly, Si}} &= 6,5 \cdot 10^{-10} \;\symup{m}  \\
-    d_2 &= 8,6 \cdot 10^{-8} \;\symup{m}. 
+    d_2 &= 8,6 \cdot 10^{-8} \;\symup{m}\\
+    \beta_{\text{Poly}} &= \frac{\delta_{\text{Poly}}}{200}\\
+    \beta_{\text{Si}} &= \frac{\delta_{\text{Si}}}{40},
 \end{align*}
+wobei die Parameter $\beta_{\text{Poly}}$ und $\beta_{\text{Si}}$ der Literatur\cite{parratt} entnommen sind.
 \begin{figure}
     \centering
     \includegraphics[width=0.8\textwidth]{build/plot_messung.pdf}
