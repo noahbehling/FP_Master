@@ -1,0 +1,25 @@
+Zielsetzung:
+wir wollen schlussendlich auch den Molekülradius berechnen
+
+Theorie:
+2.1:
+"..wobei μ 0 die magnetische Permeabilität des Vakuums und N [=] 10 28 /m 3 die Anzahl..."
+"Aus der [Kreiselgleichung] folgt..." würde es hier außerdem Sinn machen die einmal hin zu schreiben oder eher nicht?
+"Um die Magnetsierung aus ihrer Gleichgewichtslage... stets senkrecht zur e_z[-Achse] steht" 
+"Zur Eleminierung der Zeitabhängigkeit des Magnetfeldes wird zu einem [?] mit der Frequenz..."
+"In diesem gilt für die Magnetisierung" komma nach der Formel glaube ich
+2.2:
+"..sodass der bereits relaxierte Anteil der Magnetisierung quermagn[e]tisiert wird und somit ein messbares Signal erzeugt" 
+"Für die Magnetisierung gilt dabei" nutz für die Klammer \left bzw \right
+Gleichung 2 wieder Klammern
+Gleichung 3 wieder Klammern
+
+Durchführung
+[nur noch]
+3.1
+"es gilt also" sollten die Gleichungen danach in ein align?
+"[W]eiterhin muss das Magnetfeld so eingestellt werden, dass die Feldhomogenität maximal ist."
+"Es werden 21 Messwerte..." statt "-" vlt "bis"
+
+Hier haben wir wieder das mit der Literatur. Ich werde das mal durchgehen und schauen.
+

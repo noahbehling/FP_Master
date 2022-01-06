@@ -1,0 +1,25 @@
+Auswertung:
+4.1
+ich will dich nicht abfucken, aber da tabelle 1 im Anhang das vlt dabei
+"Zur Bestimmung der Halbwertsbreite [wird] durch beide..."
+Abbildung 2: was bedeutet die waagerechte gestrichelte Linie?
+sind aber sehr schöne Flanken plots
+"Die berechneten Fit-Parameter lauten.." da fehlt wahrscheinlich ein &
+bei deltat_rechts letzte nachkommastelle vlt weglassen
+
+4.3
+wieder Tabelle
+und wo ist Tabelle 2? Bei dir werden gerade Zahlen von Tabellen irgendwie nicht angezeigt oder wird falsch gezählt?
+
+4.4
+wieder Tabelle und hier ist es 5
+Abbildung 4: ich liebe diesen Plot wirklich :D
+nicht einbezogene Messwerte musst du nicht unbedingt einzeichnen oder in die Tabelle packen, wenns eh nur 0 ist
+
+Diskussion:
+"Dieser weicht um 4,6% vom Literaturwert [ab]"
+was sind "negative Myonen"? sind die das nicht immer? 
+N_\mathrm{Untergrund} &= \num{0.11 \pm 0.028} -> das & da ist falsch und wirft Fehler
+"Dies lässt sich damit erklären..." Ich fürchte, dass er wissen wollen wird was diese Einflüsse sind
+In der Literatur sind ein Haufen Quellen die wir gar nicht brauchen. Wir brauchen nur 6 und 7 oder sehe ich das falsch?
+63 Seiten Anhang, Björn wird sich bedanken :'D
