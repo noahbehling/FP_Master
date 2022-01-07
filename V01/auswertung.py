@@ -170,13 +170,13 @@ plt.errorbar(
     zorder=0,
 )
 
-plt.plot(
-    unp.nominal_values(t)[:65],
-    counts[:65],
-    color="lightgray",
-    marker="+",
-    label="Nicht einbezogene Messwerte",
-)
+# plt.plot(
+#     unp.nominal_values(t)[:65],
+#     counts[:65],
+#     color="lightgray",
+#     marker="+",
+#     label="Nicht einbezogene Messwerte",
+# )
 plt.plot(ln, N(ln, *params), c="r", label="Exponentieller Fit")
 plt.legend(loc=0)
 plt.xlabel(r"t/$\mu$s")

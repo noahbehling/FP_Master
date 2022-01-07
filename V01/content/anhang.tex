@@ -43,6 +43,8 @@ In diesem Abschnitt sind die zur Auswertung aufgenommenen Messwerte tabellarisch
 % \end{table}
 
   \pgfplotstabletypesetfile[
+  begin table=\begin{longtable},
+    end table=\end{longtable},
   every head row/.append style = {before row = \caption{Zahl der gemessen Doppelsignale im Szintillatortank in den einzelnen Kanälen.}\label{tab:data} \\ \toprule, after row = \midrule},
   % every first row/.append style = {before row={\multicolumn{2}{c}{}\\ \caption[]{Zahl der gemessen Doppelsignale im Szintillatortank in den einzelnen Kanälen.}\\\toprule},after row=\midrule\endhead},
   columns = {0, 1, 0, 1, 0, 1},

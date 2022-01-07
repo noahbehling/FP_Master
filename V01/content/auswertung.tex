@@ -1,6 +1,7 @@
 \section{Auswertung}
 
 Zur Bestimmung der Lebensdauer von Myonen beträgt die Messzeit $ t_\mathrm{Mess} = \SI{180899}{\second} \approx \SI{50.25}{\hour}$. Hierbei wurden $N_\mathrm{Start} = \num{3648888}$ Start- und $N_\mathrm{Stopp} = \num{17157}$ Stoppimpulse registriert. Die Zahl der aktiven Kanäle, also der Kanäle mit mindestens einem Eintrag und zwischen zwei Kanälen mit mindestens einem Eintrag, beträgt $N_{\mathrm{Channel}} = \num{8063}$.
+Die Auswertung erfolgt in der Programmiersprache \textit{python} mit Hilfe der wissenschaftlichen Bibliotheken \textit{numPy}\cite{numpy}, \textit{sciPy}\cite{scipy}, \textit{matplotlib}\cite{matplotlib} und \textit{uncertainties}\cite{uncertainties}.
 
 \subsection{Bestimmung der Halbwertsbreite}
 % Verzögerung:
@@ -12,12 +13,12 @@ Zur Bestimmung der Lebensdauer von Myonen beträgt die Messzeit $ t_\mathrm{Mess
 %  394.26743557684085+/-7.645960090431173]
 %  Werte half maximum rechts:  6.13+/-0.31
 % Halbwertsbreite:  11.5+/-0.7  ns
-Zur Justage der Koinzidenzapparatur wird die Verzögerung $\Delta t = \Delta t_2 - \Delta t_1$ systematisch variiert, wobei $\Delta t_i$ die an der jeweiligen Verzögerungsleitung eingestellte Verzögerung ist. Die hierzu aufgenommenen Messwerte sind \autoref{tab:verz} zu entnehmen.
+Zur Justage der Koinzidenzapparatur wird die Verzögerung $\Delta t = \Delta t_2 - \Delta t_1$ systematisch variiert, wobei $\Delta t_i$ die an der jeweiligen Verzögerungsleitung eingestellte Verzögerung ist. Die hierzu aufgenommenen Messwerte sind \autoref{tab:verz} im Anhang zu entnehmen.
 Da kein eindeutiges Maximum vorliegt, wird der Mittelwert der gemessenen Counts im Bereich $\SI{-1.5}{\ns} \leq \Delta t \leq \SI{1.5}{\ns}$ bestimmt. Dieser lautet
 \begin{equation*}
   \bar{N}_\mathrm{max} = \num{333 \pm 7}.
 \end{equation*}
-Zur Bestimmung der Halbwertsbreite durch beide Flanken eine Ausgleichsgerade
+Zur Bestimmung der Halbwertsbreite wird durch beide Flanken eine Ausgleichsgerade
 \begin{equation*}
   N(\Delta t) = a \cdot \Delta t + b
 \end{equation*}
@@ -32,12 +33,12 @@ gelegt. Die Messwerte, sowie die Ausgleichsgeraden, sind in \autoref{fig:verz} g
 
 Für die linke Flanke wird der Bereich $\SI{-10}{\nano\second} \leq \Delta t \leq \SI{-1.5}{\ns}$ und für die rechte Flanke der Bereich $\SI{1.5}{\ns} \leq \Delta t \leq \SI{10}{\ns}$ betrachtet. Die berechneten Fit-Parameter lauten
 \begin{align*}
-  a_\mathrm{links} &= \SI{42.1 \pm 3.3}{\per\ns} & a_\mathrm{rechts} &= \SI{-37.2 \pm 1.3}{\per\ns} \\
-  b_\mathrm{links} &= \num{391.4 \pm 19.6} & b_\mathrm{rechts} = \num{394.3 \pm 7.6}.
+  a_\mathrm{links} &= \SI{42.1 \pm 3.3}{\per\ns}, & a_\mathrm{rechts} &= \SI{-37.2 \pm 1.3}{\per\ns} \\
+  b_\mathrm{links} &= \num{391.4 \pm 19.6}, & b_\mathrm{rechts} &= \num{394.3 \pm 7.6}.
 \end{align*}
 Die daraus ermittelten Werte, bei denen das halbe Maximum erreicht ist, lauten
 \begin{align*}
-  \Delta t_\mathrm{links} &= \SI{-5.3 \pm 0.6}{\ns} & \Delta t_\mathrm{rechts} &= \SI{6.1 \pm 0.31}{\ns}.
+  \Delta t_\mathrm{links} &= \SI{-5.3 \pm 0.6}{\ns} & \Delta t_\mathrm{rechts} &= \SI{6.1 \pm 0.3}{\ns}.
 \end{align*}
 Folglich gilt für die Halbwertsbreite
 \begin{equation*}
@@ -71,7 +72,7 @@ beziehungsweise
 %  MCA Kalibrierung:
 % a = 0.00135523+/-0.00000030, b = 0.1372+/-0.0013
 %
-Zur Kalibrierung des Vielkanalanalysators wird der korrespondierende Kanal des zeitlichen Abstandes zweier Impulse aufgezeichnet. Werden mehrere Kanäle angesteuert, werden die jeweiligen Kanäle mitsamt den jeweiligen Counts aufgenommen, sodass ein gewichtetes Mittel bestimmt werden kann. Die aufgenommenen Messwerte sind \autoref{tab:puls} zu entnehmen. Durch die gewichteten Mittelwerte der Kanalnummern als Funktion des Pulsabstandes wird eine Ausgleichsgerade
+Zur Kalibrierung des Vielkanalanalysators wird der korrespondierende Kanal des zeitlichen Abstandes zweier Impulse aufgezeichnet. Werden mehrere Kanäle angesteuert, werden die jeweiligen Kanäle mitsamt den jeweiligen Counts aufgenommen, sodass ein gewichtetes Mittel bestimmt werden kann. Die aufgenommenen Messwerte sind \autoref{tab:puls} im Anhang zu entnehmen. Durch die gewichteten Mittelwerte der Kanalnummern als Funktion des Pulsabstandes wird eine Ausgleichsgerade
 \begin{equation*}
   \mathrm{Kanalnummer} (\Delta t_\mathrm{Puls}) = a \Delta t_\mathrm{Puls} + b
 \end{equation*}
