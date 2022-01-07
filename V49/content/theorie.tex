@@ -14,13 +14,13 @@ Hierbei beschreibt $\gamma$ das gyromagnetische Verhältnis, $T$ die Temperatur,
 \begin{equation*}
   M_0 = \frac{1}{4} \mu_0 \gamma^2 \frac{\hbar^2}{k_\mathrm{B}} N \frac{B_0}{T},
 \end{equation*}
-wobei $\mu_0$ die magnetische Permeabilität des Vakuums und $N ~ \SI{e28}{\per\cubic\metre}$ die Anzahl der Momente pro Volumeneinheit sind. Die große Zahl an Einzelmomenten erlaubt es, die Probenmagnetisierung mit klassischen Methoden zu behandeln.
+wobei $\mu_0$ die magnetische Permeabilität des Vakuums und $N \sim \SI{e28}{\per\cubic\metre}$ die Anzahl der Momente pro Volumeneinheit sind. Die große Zahl an Einzelmomenten erlaubt es, die Probenmagnetisierung mit klassischen Methoden zu behandeln.
 
 Wird nun die Magnetisierung durch das Einstrahlen von HF-Quanten aus seiner Gleichgewichtslage bewegt, so wirkt auf die Magnetisierung ein Drehmoment
 \begin{equation*}
-  \vec{D} = \vec{M} \times \vec{B}_0.
+  \vec{D} = \frac{\mathrm{d}\vec{I}}{\mathrm{d}t} = \vec{M} \times \vec{B}_0,
 \end{equation*}
-Aus der Kreiselgeleichung folgt, dass die Magnetisierung dadurch eine Präzessionsbewegung um die $\vec{e}_z$-Achse mit der Larmor-Frequenz
+wobei es sich bei $\vec{I}$ um den Drehimpuls handelt. Dieser ist über das gyromagnetische Verhältnis mit der Magnetisierung über $\vec{M} = \gamma \vec{I}$ verknüpft. Daraus folgt, dass die Magnetisierung eine Präzessionsbewegung um die $\vec{e}_z$-Achse mit der Larmor-Frequenz
 \begin{equation*}
   \omega_\mathrm{L} = \gamma B_0
 \end{equation*}
@@ -32,11 +32,11 @@ ausführt. Die aus seiner Gleichgewichtslage bewegte Magnetisierung $\vec{M}$ st
 \end{align*}
 beschrieben, wobei $T_1$ die longitudinale, oder auch Spin-Gitter-Relaxationszeit, und $T_2$ die transversale, oder auch Spin-Spin-Relaxationszeit sind.
 
-Um die Magnetisierung aus ihrer Gleichgewichtslage zu bewegen wird HF-Strahlung eingestrahlt, wobei dessen magnetischer Feldvektor stets senkrecht zur $\vec{e}_z$ steht. Für das gesamte Magnetfeld gilt also
+Um die Magnetisierung aus ihrer Gleichgewichtslage zu bewegen wird HF-Strahlung eingestrahlt, wobei dessen magnetischer Feldvektor stets senkrecht zur $\vec{e}_z$-Achse steht. Für das gesamte Magnetfeld gilt also
 \begin{equation*}
   \vec{B}_\mathrm{ges} = \begin{pmatrix} B_1 \cos \omega t \\ B_1 \sin \omega t \\ B_0 \end{pmatrix}.
 \end{equation*}
-Zur Eleminierung der Zeitabhängigkeit des Magnetfeldes wird zu einem mit der Frequenz $\omega$ um die $\vec{B}_0$ rotierenden Koordinatensystem gewechselt. In diesem gilt für die Magnetisierung
+Zur Eleminierung der Zeitabhängigkeit des Magnetfeldes wird zu einem Koordinatensystem gewechselt, welches mit der Frequenz $\omega$ um $\vec{B}_0$ rotiert. In diesem gilt für die Magnetisierung
 \begin{equation*}
   \frac{\mathrm{d}\vec{M}}{\mathrm{d}t} = \gamma \left( \vec{M} \times \vec{B}_\mathrm{eff} \right)
 \end{equation*}
@@ -50,9 +50,9 @@ Ist nun die Frequenz des HF-Feldes gleich der Lamorfrequenz $\omega_\mathrm{L}$,
 \subsection{Pulsfolgen zur Bestimmung der Relaxationszeiten}
 Bei der gepulsten NMR wird die zu untersuchende Probe von einer zu $\vec{B}_0$ senkrechten Spule umgeben. Diese dient sowohl zur Einstrahlung von HF-Strahlung, als auch zur Messung der durch die Präzession der Quermagnetisierung induzierten Spannung. Dieses Signal zerfällt mit $T_2$. Wird die Magnetisierung nur mit einem $\SI{90}{\degree}$-Puls in die $x$-$y$-Ebene gedreht, wird der daraufhin beobachtete Zerfall des Signals freier Induktionszerfall (engl.: free induction decay, kurz FID) genannt. Dieses Signal kann zur Bestimmung der Relaxationszeiten genutzt werden.
 
-Zur $T_1$-Bestimmung kann die \textit{Inversion Recovery} genutzt werden. Hierbei wird zunächst mittels eines $\SI{180}{\degree}$-Pulses die Gleichgewichtsmagnetisierung in $z$-Richtung invertiert. Daraufhin wird nach einer Wartezeit $t$ ein $\SI{90}{\degree}$-Puls eingestrahlt, sodass der bereits relaxierte Anteil der Magnetisierung quermagnitisiert wird und somit ein messbares Signal erzeugt. Für die Magnetisierung gilt dabei
+Zur $T_1$-Bestimmung kann die \textit{Inversion Recovery} genutzt werden. Hierbei wird zunächst mittels eines $\SI{180}{\degree}$-Pulses die Gleichgewichtsmagnetisierung in $z$-Richtung invertiert. Daraufhin wird nach einer Wartezeit $t$ ein $\SI{90}{\degree}$-Puls eingestrahlt, sodass der bereits relaxierte Anteil der Magnetisierung quermagnetisiert wird und somit ein messbares Signal erzeugt. Für die Magnetisierung gilt dabei
 \begin{equation}
-  M_x (t) = M_0 (1 - 2 \exp (-\frac{t}{T_1})).
+  M_x \left(t\right) = M_0 \left(1 - 2 \exp \left(-\frac{t}{T_1}\right)\right).
   \label{eq:T1}
 \end{equation}
 % In der Praxis lässt sich $M_z (0) = - M_0$ aufgrund von Inhomogenitäten von $B_1$ nicht realisieren.
@@ -64,7 +64,7 @@ Eine weitere wichtige Pulsfolge ist die Hahn-Echo-Methode. Hierbei wird zunächs
 \end{equation*}
 wobei $T_{2,\mathrm{irr}}$ der irreversible Einfluss auf die Relaxationszeit ist. Solange der inhomogene Anteil von $\vec{B}_0$ aber hinreichend klein ist, lässt sich $T_2$ mit der Hahn-Echo-Methode bestimmen. Für die Höhe des Echos gilt dabei
 \begin{equation}
-  M_y (t) = M_0 \exp (-\frac{t}{T_2}).
+  M_y \left(t\right) = M_0 \exp \left(-\frac{t}{T_2}\right).
   \label{eq:T2}
 \end{equation}
 
@@ -72,7 +72,7 @@ Da die Hahn-Echo-Methode allerdings sehr zeitaufwendig ist, da nach jeder Messun
 
 Ist $T_2$ bekannt, so kann mit der Hahn-Echo-Methode außerdem das Diffusionsverhalten einer Probe untersucht werden. Hierbei wird die Inhomogenität von $\vec{B}_0$ maximiert, sodass die Larmorfrequenz ortsabhängig wird. Für die Amplitude des Hahn-Echos gilt dann
 \begin{equation}
-  M_y (t) = M_0 \exp (-\frac{2\tau}{T_2}) \exp (-\frac{2}{3} D \gamma^2 G^2 \tau^3) = M_0 \exp (-\frac{2\tau}{T_2}) \exp (-\frac{2\tau}{T_\mathrm{D}}),
+  M_{x,y} \left(t\right) = M_{x,y}\left(0\right) \exp \left(-\frac{2\tau}{T_2}\right) \exp \left(-\frac{2}{3} D \gamma^2 G^2 \tau^3\right) = M_0 \exp \left(-\frac{2\tau}{T_2}\right) \exp \left(-\frac{2\tau}{T_\mathrm{D}}\right),
   \label{eq:D}
 \end{equation}
 wobei $t = 2\tau$ und $T_\mathrm{D} = \frac{3}{D \gamma^2 G^2 \tau^2}$ eingesetzt wurde. $G$ beschreibt hierbei den Feldgradienten und $D$ ist die Diffusionskonstante. Über letztere lässt sich schließlich auch der Molekülradius $R_0$ mit der Einstein-Stokes-Gleichung
