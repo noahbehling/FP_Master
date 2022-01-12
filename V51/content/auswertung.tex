@@ -7,6 +7,7 @@ dargestellt. Des Weiteren werden die Bibliotheken \textit{uncertainties} \cite{u
 \end{equation*}
 wobei $\Delta y$ der Fehler einer aus mehreren fehlerbehafteten Größen $x_i$ zu bestimmenden Größe $y$ ist. $\Delta x_i$ ist hierbei der Fehler der Größe $x_i$. Letztere dient zur Bestimmung der freien Parameter von Ausgleichsfunktionen nach der Methode der kleinsten Quadrate. Die freien Parameter werden also so bestimmt, dass die Summe der quadrierten Abweichungen der Messpunkte von der Ausgleichsfunktion minimal wird.
 
+\newpage
 \subsection{Invertierender Linearverstärker}
 Zur Untersuchung des invertierenden Linearverstärkers wurden drei Messreihen mit verschiedenen Widerständen im Frequenzbereich $\SIrange{0.01}{1000}{\kilo\hertz}$ aufgenommen. Hierbei wurden jeweils Frequenz $f$, Ausgangsspannung $U_\mathrm{a}$ und zeitliche Differenz $\Delta t$ zwischen den Maxima von Ein- und Ausgangsspannung aufgenommen, welche \autoref{tab:lin_1} bis \ref{tab:lin_3} zu entnehmen sind. Die Widerstandswerte und die sich daraus über \autoref{eqn:verhaeltnis} ergebende theoretische Leerlaufverstärkung sind \autoref{tab:widerstaende} zu entnehmen. Die Eingangsspannung betrug dabei immer $U_\mathrm{e} = \SI{50}{\milli\volt}$.
 
@@ -108,7 +109,6 @@ Die Phasenverschiebung zwischen Ein- und Ausgangsspannung wird berechnet über $
 \end{figure}
 Die Phasenverschiebung $\pi$ bei niedrigen Frequenzen ist Folge der invertierenden Eigenschaft des Linearverstärkers und somit erwartet. Da die Verstärkung bei hohen Frequenzen abnimmt, ist mit einer ansteigenden Phasenverschiebung zu rechnen, allerdings sollte diese gegen $\frac{3\pi}{2}$ laufen, da in diesem Fall Eingangs- und Ausgangsspannung destruktiv interferieren würden. Stattdessen läuft die Phasenverschiebung bei hohen Frequenzen in allen Messreihen gegen $2\pi$.
 
-\newpage
 \subsection{Umkehr-Integrator}
 Zur Untersuchung des Integrators wurde die Ausgangsspannung $U_\mathrm{a}$ in Abhängigkeit der Frequenz $f$ der Eingangsspannung aufgenommen, wobei es sich bei letzterer um ein sinusförmiges Signal handelt. Hierbei wurden ein Widerstand mit $R = \SI{10}{\kilo\ohm}$ und ein Kondensator mit Kapazität $C = \SI{100}{\nano\farad}$ verwendet. Die Messwerte sind \autoref{tab:int} im \autoref{sec:anhang} zu entnehmen und grafisch in \autoref{fig:int_messung} dargestellt.
 
@@ -199,7 +199,6 @@ Weiterhin wurden zur Überprüfung der differenzierenden Eigenschaft des inverti
 
 Bei einer Dreieck-Spannung als Eingangsspannung wird eine Rechteck-Spannung als Ausgangsspannung erwartet, bei einer Rechteck-Spannung als Eingangsspannung werden Peaks einer Delta-Distribution an Stelle der Spannungsänderung erwartet, da diese näherungsweise als Gerade mit unendlicher Steigung zu einem infinitesimalen Zeitpunkt betrachtet werden kann, und bei einem Sinus-Eingangssignal wird als Ausgang ein Cosinus erwartet. Die jeweils erwarteten Ausgangssignale, also jeweils die Ableitung des Eingangssignals, konnten beobachtet und folglich die Funktion des Umker-Differenzierers bestätigt werden, wobei an den Unstetigkeiten des Dreieck-Signals als Eingangssignal das Gibb'sche Phänomen im Ausgangssignal zu beobachten ist. Dieses beschreibt das Auftreten von Über- und Unterschwingungen an den Sprungstellen der Fourierreihen von stückweise stetigen, differenzierbaren Funktionen auftritt und ist in der Elektronik von Bedeutung, da keine reinen Signale erzeugt werden können, sondern nur Approximationen.
 
-\newpage
 \subsection{Nicht-invertierender Schmitt-Trigger}
 
 \begin{figure}[H]
@@ -209,7 +208,7 @@ Bei einer Dreieck-Spannung als Eingangsspannung wird eine Rechteck-Spannung als 
   \label{fig:schmitt_oszi}
 \end{figure}
 
-Zur Untersuchung des Nicht-invertierenden Schmitt-Triggers werden die Widerstände $R_1 = \SI{10}{\kilo\ohm}$ und $R_2 = \SI{220}{\kilo\ohm}$ verbaut. In \autoref{fig:schmitt_oszi} ist der Verlauf der Ein- und Ausgangsspannung am Oszilloskop dargestellt. Die Kipp-Spannung wurde bei $U_{\mathrm{e, Kipp}} = \SI{680}{\milli\volt}$ gefunden. Der theoretische Wert beträgt $U_{S_{\pm}} = 0.6\bar{81} \, \si{\volt}$.
+Zur Untersuchung des Nicht-invertierenden Schmitt-Triggers werden die Widerstände $R_1 = \SI{10}{\kilo\ohm}$ und $R_2 = \SI{220}{\kilo\ohm}$ verbaut. In \autoref{fig:schmitt_oszi} ist der Verlauf der Ein- und Ausgangsspannung am Oszilloskop dargestellt. Zu sehen ist das sinusförmige Eingangssignal in CH2 und ich CH1 ist das erhaltene rechteckförmige Ausgangssignal zu sehen, auch wenn dieses eine leichte Spannungsabnahme im theoretisch konstanten Bereich aufweist. Dies beeinträchtigt die Funktion des Schmitt-Triggers im Rahmen dieses Versuchs allerdings nicht. Die Vorzeichenwechsel der Ausgangsspannung erfolgt hierbei immer kurz bevor die Eingangsspannung einen Extremalwert erreicht. Dieser Wert kennzeichnet die Kipp-Spannung der Schaltung. Durch Variation der Amplitude der Eingangsspannung kann die Kipp-Spannung bestimmt werden, indem die Amplitude ermittelt wird, bei der das Ausgangssignal zum rechteckförmigen Signal wird. Die Kipp-Spannung wurde bei $U_{\mathrm{e, Kipp}} = \SI{680}{\milli\volt}$ gefunden. Der theoretische Wert beträgt $U_{S_{\pm}} = 0.6\bar{81} \, \si{\volt}$.
 
 \newpage
 \subsection{Signalgenerator}

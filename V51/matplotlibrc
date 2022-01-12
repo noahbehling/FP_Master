@@ -8,10 +8,10 @@ figure.figsize : 5.78, 3.57
 font.family : serif
 
 # Fontgrößen
-font.size : 11
+font.size : 14
 legend.fontsize : medium
-xtick.labelsize : 12
-ytick.labelsize : 12
+xtick.labelsize : 13
+ytick.labelsize : 13
 
 # unsere Fonteinstellungen benutzen
 pgf.rcfonts : False

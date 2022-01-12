@@ -22,9 +22,7 @@ borders = [12, 13, 14]
 
 for i in range(3):
     f, U_a, delta_t = np.genfromtxt(
-        f"{os.getcwd()}/V51/data/linearverstaerker_{i + 1}.txt",
-        delimiter=", ",
-        unpack=True,
+        f"data/linearverstaerker_{i + 1}.txt", delimiter=", ", unpack=True,
     )
     log_f = np.log10(f)
     V = U_a / 0.05
@@ -64,8 +62,8 @@ for i in range(3):
     plt.grid(True)
     plt.tight_layout()
     plt.title(f"Messreihe {i+1}")
-    plt.savefig(f"{os.getcwd()}/V51/plots/linearverstaerker_{i+1}.pdf")
-    plt.show()
+    plt.tight_layout()
+    plt.savefig(f"plots/linearverstaerker_{i+1}.pdf")
     plt.clf()
 
     fig, ax = plt.subplots(1)
@@ -79,15 +77,13 @@ for i in range(3):
     plt.legend(loc=0)
     plt.grid(True)
     plt.title(f"Messreihe {i+1}")
-    plt.savefig(f"{os.getcwd()}/V51/plots/linearverstaerker_phase_{i + 1}.pdf")
-    plt.show()
+    plt.tight_layout()
+    plt.savefig(f"plots/linearverstaerker_phase_{i + 1}.pdf")
     plt.clf()
 
 print("\n Integrator: \n")
 
-f, U_a = np.genfromtxt(
-    f"{os.getcwd()}/V51/data/integrator.txt", delimiter=",", unpack=True
-)
+f, U_a = np.genfromtxt("data/integrator.txt", delimiter=",", unpack=True)
 log_f = np.log(f)
 log_U_a = np.log(U_a)
 
@@ -106,14 +102,12 @@ plt.xlabel(r"$\log_{10}$(f/kHz)")
 plt.ylabel(r"$\log_{10}$($U_{\mathrm{a}}$/V)")
 plt.legend(loc=0)
 plt.grid(True)
-plt.savefig(f"{os.getcwd()}/V51/plots/integrator.pdf")
-plt.show()
+plt.tight_layout()
+plt.savefig("plots/integrator.pdf")
 plt.clf()
 
 print("\n Differenzierer: \n")
-f, U_a = np.genfromtxt(
-    f"{os.getcwd()}/V51/data/differenzierer.txt", delimiter=",", unpack=True
-)
+f, U_a = np.genfromtxt("data/differenzierer.txt", delimiter=",", unpack=True)
 log_f = np.log(f)
 log_U_a = np.log(U_a)
 
@@ -125,10 +119,10 @@ print(f"Fit-Parameter für den Integrator: A = {err[0]} und B = {err[1]}")
 
 ln = np.linspace(-4, 1)
 plt.plot(ln, lin(ln, *params), label="Fit")
-plt.xlabel(r"$\log_{10}$(f/kHz)")
-plt.ylabel(r"$\log_{10}$($U_{\mathrm{a}}$/V)")
+plt.xlabel(r"$\log_{10}$(f/kHz)", fontsize=15)
+plt.ylabel(r"$\log_{10}$($U_{\mathrm{a}}$/V)", fontsize=15)
 plt.legend(loc=0)
 plt.grid(True)
-plt.savefig(f"{os.getcwd()}/V51/plots/differenzierer.pdf")
-plt.show()
+plt.tight_layout()
+plt.savefig("plots/differenzierer.pdf")
 plt.clf()

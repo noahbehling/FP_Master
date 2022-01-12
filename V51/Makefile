@@ -6,6 +6,11 @@ all: build/main.pdf
 #
 ## hier weitere Abhängigkeiten für build/main.pdf deklarieren:
 
+plots/linearverstaerker_1.pdf: auswertung.py matplotlibrc header-matplotlib.tex | build
+	TEXINPUTS=$$(pwd): python3 auswertung.py
+
+build/main.pdf: plots/linearverstaerker_1.pdf
+
 build/main.pdf: FORCE | build
 	  TEXINPUTS=build: \
 	  BIBINPUTS=build: \
