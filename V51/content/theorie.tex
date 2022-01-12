@@ -1,10 +1,10 @@
 \section{Theorie}
 \label{sec:theorie}
-Mittels eines Operationsverstärkers lässt sich eine Ausgangsspannung $U_a$ erzeugen, welche 
-proportional zur Differenz zweier angelegter Eingangsspannungen ist. 
-Der Operationsverstärker ist ein Bauteil welches im Allgemeinen über zwei Spannungseingänge, zwei Anschlüsse 
-für die Betriebsspannung $U_B$ und einen Ausgang 
-verfügt. In Schaltskizzen wird 
+Mittels eines Operationsverstärkers lässt sich eine Ausgangsspannung $U_a$ erzeugen, welche
+proportional zur Differenz zweier angelegter Eingangsspannungen ist.
+Der Operationsverstärker ist ein Bauteil welches im Allgemeinen über zwei Spannungseingänge, zwei Anschlüsse
+für die Betriebsspannung $U_B$ und einen Ausgang
+verfügt. In Schaltskizzen wird
 das in \autoref{fig:opskizze} gezeigte Symbol für den Operationsverstärker verwendet.
 \begin{figure}[H]
     \centering
@@ -12,33 +12,33 @@ das in \autoref{fig:opskizze} gezeigte Symbol für den Operationsverstärker ver
     \caption{Schaltzeichen des Operationsverstärkers \cite{anleitung} nach der Norm DIN-EN-6067.}
     \label{fig:opskizze}
 \end{figure}
-Dabei beschreibt 
+Dabei beschreibt
 \textbf{+} die Eingangsspannung, die in Phase geschaltet ist und daher auch als nicht-invertierender
-Eingang beschrieben wird, während \textbf{-} der gegenphasige oder invertierende Eingang 
-zur Ausgangsspannung ist. Die Ausgangsspannung ist dadurch definiert als 
+Eingang beschrieben wird, während \textbf{-} der gegenphasige oder invertierende Eingang
+zur Ausgangsspannung ist. Die Ausgangsspannung ist dadurch definiert als
 \begin{equation*}
     U_a = V \cdot  (U_+ - U_-),
 \end{equation*}
 wobei $U_{\pm}$ die angelegte Spannung an den jeweiligen Eingängen und $V$ die Leerlaufverstärkung ist.
-Die Ausgangsspannung ist dabei durch die Betriebsspannung über 
+Die Ausgangsspannung ist dabei durch die Betriebsspannung über
 \begin{equation*}
     - U_B < U_a < U_B
 \end{equation*}
 begrenzt.
 
-Zur theoretischen Beschreibung eines Operationsverstärkers werden in der Regel idealisierende 
-Annahmen getroffen. Im idealen Operationsverstärker ist sowohl die Verstärkung, als auch 
+Zur theoretischen Beschreibung eines Operationsverstärkers werden in der Regel idealisierende
+Annahmen getroffen. Im idealen Operationsverstärker ist sowohl die Verstärkung, als auch
 der Eingangswiderstand unendlich groß ($V = \infty$ und $R_E = \infty$),
 während es keinen Ausgansgwiderstand gibt ($R_A = 0$). \\
 In einem realen Operationsverstärker sind diese Idealisierungen nicht zu erreichen, sodass im Bauteil
-Leerlaufverstärkung und Eingangswiderstand nur möglichst groß und der Ausgansgwiderstand möglichst 
-klein sind. Da die Theorie Operationsverstärker mit diesen Idealisierungen beschreibt, 
-kommen in der Realität noch Korrekturen, wie Offsetstrom und Offsetspannung, welche 
-daher stammen, dass die Eingangsströme bei realen Operationsverstärkern endlich sind oder 
+Leerlaufverstärkung und Eingangswiderstand nur möglichst groß und der Ausgansgwiderstand möglichst
+klein sind. Da die Theorie Operationsverstärker mit diesen Idealisierungen beschreibt,
+kommen in der Realität noch Korrekturen, wie Offsetstrom und Offsetspannung, welche
+daher stammen, dass die Eingangsströme bei realen Operationsverstärkern endlich sind oder
 der Gleichtaktverstärkung, welche ein Maß für die Verzerrung innerhalb des Bauteils ist, hinzu.
 
 \subsection{Invertierender Linearverstärker}
-Die Schaltskizze eines invertierenden Linearverstärkers ist in \autoref{fig:lin} zu sehen. Er wird 
+Die Schaltskizze eines invertierenden Linearverstärkers ist in \autoref{fig:lin} zu sehen. Er wird
 verwendet um ein invertiertes, verstärktes Signal bezüglich der Eingangsspannung $U_e$ zu erzeugen.
 \begin{figure}[H]
     \centering
@@ -47,14 +47,14 @@ verwendet um ein invertiertes, verstärktes Signal bezüglich der Eingangsspannu
     \label{fig:lin}
 \end{figure}
 Bei diesem Aufbau wird der invertierende Eingang über zwei Widerstände rückgekoppelt,
-sodass ein Teil der 
-Ausgangsspannung an den invertierenden Eingang zurückgegeben wird. An dieser Anschlussstelle 
-ist die Spannung gering, sodass sich über die Kirchhoff'schen Regeln die Gleichung 
+sodass ein Teil der
+Ausgangsspannung an den invertierenden Eingang zurückgegeben wird. An dieser Anschlussstelle
+ist die Spannung gering, sodass sich über die Kirchhoff'schen Regeln die Gleichung
 \begin{equation*}
     \frac{U_e}{R_1} + \frac{U_a}{R_2} = 0
 \end{equation*}
 bestimmen lässt. Die Bezeichnungen stimmen dabei mit denen aus \autoref{fig:lin} überein.
-Die ideale Leerlaufverstärkung $V'$ ist durch 
+Die ideale Leerlaufverstärkung $V'$ ist durch
 \begin{equation}
     \label{eqn:verhaeltnis}
     V' = \frac{U_a}{U_e} = - \frac{R_2}{R_1}
@@ -68,13 +68,13 @@ An der Anschlussstelle (As) ergibt sich für einen unbelasteten Spannungsteiler 
 mit der realen Verstärkung $V$ und daher
 \begin{equation*}
    V =  \frac{U_\text{AS} - U_1}{U_a - U_e} = \frac{R_1}{R_1 + R_2}.
-\end{equation*}   
+\end{equation*}
 Über \autoref{eqn:verhaeltnis} ergibt sich
 \begin{equation*}
     \frac{1}{V'} \approx \frac{1}{V} + \frac{R_1}{R_2}.
 \end{equation*}
-Durch die Rückkopplung können Schwankungen von $V$ sehr gut abgefangen werden, sodass 
-$V'$ durch diese Schwankungen kaum betroffen ist. Die Gegenkopplung erhöht somit die Stabilität 
+Durch die Rückkopplung können Schwankungen von $V$ sehr gut abgefangen werden, sodass
+$V'$ durch diese Schwankungen kaum betroffen ist. Die Gegenkopplung erhöht somit die Stabilität
 der Verstärkungsschaltung.
 Die Bandbreite $B$ gibt den Frequenzbereich konstanter Verstärkung an.
 Die Verstärkung $V$ und die Bandbreite $B$, hängen dabei über die Beziehung
@@ -107,10 +107,10 @@ und damit für ein sinusförmiges Eingangssignal $U_e = U_0 \sin(\omega t)$
 Es ergibt sich also ein antiproportionaler Zusammenhang zwischen der Ausgangsspannung $U_a$
 und der Frequenz $\omega$. Allgemein können auch alle anderen Signale integriert werden.
 Bei Unstetigkeiten kann es dabei allerdings zum sogenannten Gibb'schen Phänomen kommen,
-also zu Überschwingungen an den Unstetigkeiten. 
+also zu Überschwingungen an den Unstetigkeiten.
 
 \subsection{Umkehr-Differentiator}
-Werden nun Kondensator und Widerstand aus der vorherigen Schaltung vertauscht, ergibt sich 
+Werden nun Kondensator und Widerstand aus der vorherigen Schaltung vertauscht, ergibt sich
 ein Umkehr-Differentiator. Die Schaltung dazu ist in \autoref{fig:umkehrdiff}
 dargestellt.
 \begin{figure}[H]
@@ -127,7 +127,7 @@ und durch Differentiation und Umstellen
 \begin{equation*}
     U_a = - R C \frac{\symup{d}U_e}{\symup{d} t}
 \end{equation*}
-und somit für ein sinusförmiges Signal 
+und somit für ein sinusförmiges Signal
 \begin{equation*}
     U_a = - \omega R C U_0 \cos(\omega t).
 \end{equation*}
@@ -145,9 +145,9 @@ Operationsverstärker die Eigenschaft eines Schalters erhält.
 \end{figure}
 Dies bedeutet, dass der Operationsverstärker
 bei einem Schwellwert $U_{S_{\pm}}$ schlagartig den Sättigungswert $\pm U_B$ annimmt.
-Die Schwellspannung ist dabei abhängig davon ob vor Veränderung des Eingangs eine 
-positive oder negative Ausgangsspannung vorliegt. 
-Die Schwellspannungen sind 
+Die Schwellspannung ist dabei abhängig davon ob vor Veränderung des Eingangs eine
+positive oder negative Ausgangsspannung vorliegt.
+Die Schwellspannungen sind
 \begin{equation*}
     U_{S_{\pm}} = U_{\pm} \frac{R_1}{R_2}.
 \end{equation*}
@@ -158,11 +158,12 @@ ist es möglich einen Signalgenerator zu bauen, wie er in \autoref{fig:signal} s
 Der Schmitt-Trigger liefert eine konstante Spannung $U_B$ bis der Schwellwert $U_{S_{-}}$
 unterschritten wird. Bei Verwenden eines sinusförmigen Signals, welches die Schwellspannungen überschreitet,
 gibt der Schmitt-Trigger
-ein Rechtecksignal aus. Der Integrator integriert das Rechtecksignal zu einer Dreiecksspannung, die dort 
+ein Rechtecksignal aus. Der Integrator integriert das Rechtecksignal zu einer Dreiecksspannung, die dort
 ebenfalls abgegriffen werden kann. Die Frequenz der Schwingung hat den Theoriewert\cite{anleitung}
-\begin{equation*}
+\begin{equation}
     \nu_{\text{Dreieck}} = \frac{R_2}{4 C R_1 R_3}.
-\end{equation*}
+    \label{eq:dreieck}
+\end{equation}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.67\textwidth]{signalgenerator.png}
@@ -172,7 +173,7 @@ ebenfalls abgegriffen werden kann. Die Frequenz der Schwingung hat den Theoriewe
 
 \subsection{Variierende Amplituden}
 Durch das Hintereinanderschalten von zwei Integratoren und einem invertierenden Linearverstärker
-kann eine gedämpfte harmonische Schwingung erzeugt werden. Die Schaltskizze ist in 
+kann eine gedämpfte harmonische Schwingung erzeugt werden. Die Schaltskizze ist in
 \autoref{fig:amplituden} dargestellt.
 \begin{figure}[H]
     \centering
@@ -184,7 +185,7 @@ Diese Schwingung lässt sich durch die Differentialgleichung der Ausgangsspannun
 \begin{equation*}
     \frac{\symup{d^2} U_a}{\symup{d} t^2} - \frac{\eta}{10 R C} \frac{\symup{d} U_a}{\symup{d} t} + \frac{1}{R^2 C^2} U_a = 0
 \end{equation*}
-beschreiben, dessen Lösung 
+beschreiben, dessen Lösung
 \begin{equation*}
     U_a (t) = U_0 \exp \left( \frac{\eta}{10 R C} \right) \sin \left(\frac{t}{R C} \right)
 \end{equation*}

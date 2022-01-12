@@ -1,10 +1,31 @@
+\newpage
 \section{Diskussion}
-Die ersten zwei Messreihen des invertierenden Linearverstärkers führen zu Werten für die Verstärkung, die sehr nah an den Theoriewerten liegen, allerdings in beiden Fällen leicht darunter. Dies lässt sich damit erklären, dass aufgrund von Störeffekten wie nicht betrachteten Innenwiderständen die ideale Verstärkung nicht erreicht werden kann. Außerdem können die Toleranzbereiche der Bauteile oder die Leerlaufspannung zu Störeffekten führen. Auch die Bandbreitenprodukte der ersten beiden Messreihen, die in der Theorie konstant sind, liegen sehr nah beieinander, was die Theorie im Rahmen der großen Unsicherheiten bestätigt. Die gemessene Verstärkung bei der dritten Messreihe zeigt hingegen eine größere Abweichung zum Theoriewert von ca. $\SI{50}{\percent}$. Außerdem weisen Grenzfrequenz und Bandbreitenprodukt eine so große statistische Unsicherheit auf, dass diese Messwerte nicht mehr aussagekräftig sind. Dies ist zurückzuführen auf die wenigen aufgenommenen Messwerte für den abfallenden Bereich in der dritten Messreihe.
 
-Die Funktionsweise und die Frequenzabhängigkeit des Integrators und Differenzierers konnten experimentell bestätigt werden. Da die Unsicherheiten der Steigungskoeffizienten gering waren, lassen sich grobe Messfehler ausschließen. Demnach sind auch hier die Abweichungen vom Theoriewert vermutlich auf Störeffekte zurückzuführen.
+\begin{table}[tb]
+  \centering
+  \caption{Experimentell bestimmte Verstärkung $V_{0,\mathrm{Exp.}}$ invertierender Linearverstärker mit verschiedenen Widerständen im Vergleich zu deren Theoriewerten $V_{0,\mathrm{Theo.}}$, sowie relative Abweichung vom Theoriewert in $\%$. Die jeweils verwendeten Widerstände sind \autoref{tab:widerstaende} zu entnehmen.}
+  \label{tab:lin_vergleich}
+  \begin{tabular}{l c c c}
+    \toprule
+    & $V_{0,\mathrm{Exp.}}$ & $V_{0,\mathrm{Theo.}}$ & rel. Abweichung /$\%$ \\
+    \midrule
+    Messung 1 & $\num{97.00 \pm 2.70}$ & $\num{100}$ & $\num{3}$\\
+    Messung 2 & $\num{148.00 \pm 3.20}$ & $\num{150}$ & $1.\bar{3}$\\
+    Messung 3 & $\num{10.30 \pm 0.22}$ & $6.\bar{6}$ & $\num{54.5}$\\
+    \bottomrule
+  \end{tabular}
+\end{table}
 
-Weiterhin konnte im Versuch die Funktionsweise des Schmitt-Triggers reproduziert werden. Die gemessene Kippspannung weicht nur gering vom Theoriewert ab, allerdings konnte die Spannung auch nur in $\SI{20}{\milli\volt}$-Schritten gemessen werden. Daher ist nicht auszuschließen, dass die Abweichung systematischer Natur ist.
+In \autoref{tab:lin_vergleich} sind die experimentell bestimmten Verstärkungen der untersuchten invertierenden Linearverstärker, sowie die dazugehörigen Theoriewerte und relativen Abweichungen aufgeführt. Die ersten zwei Messreihen des invertierenden Linearverstärkers führen zu Werten für die Verstärkung, die sehr nah an den Theoriewerten liegen, allerdings in beiden Fällen leicht darunter. Dies lässt sich damit erklären, dass aufgrund von Störeffekten wie nicht betrachteten Innenwiderständen die ideale Verstärkung nicht erreicht werden kann. Außerdem können die Toleranzbereiche der Bauteile oder die Leerlaufspannung zu Störeffekten führen. Auch die Bandbreitenprodukte der ersten beiden Messreihen, die in der Theorie konstant sind, liegen sehr nah beieinander, was die Theorie im Rahmen der großen Unsicherheiten bestätigt. Die gemessene Verstärkung bei der dritten Messreihe zeigt hingegen eine größere Abweichung zum Theoriewert von ca. $\SI{50}{\percent}$. Außerdem weisen Grenzfrequenz und Bandbreitenprodukt eine so große statistische Unsicherheit auf, dass diese Messwerte nicht mehr aussagekräftig sind. Dies ist zurückzuführen auf die wenigen aufgenommenen Messwerte für den abfallenden Bereich in der dritten Messreihe.\\
 
-Die Messung des Signalgenerators war sehr problematisch, da die Betriebsspannungsversorgung ausgefallen ist. In einer Oszilloskopaufnahme ist allerdings die Funktionsweise dargestellt. Bei negativer Ausgangsspannung des Schmitt-Triggers ist ein Dreieck-Signal zu sehen, bei Vorzeichenwechsel der Ausgangsspannung des Schmitt-Triggers ist jedoch kein negatives Dreieck-Signal zu sehen, sondern Unstetigkeiten um eine konstante Spannung. Folglich konnte hier die Funktionsweise zwar nuanciert dargestellt, allerdings nicht vollständig reproduziert werden.
+Die Funktionsweise und die Frequenzabhängigkeit des Integrators und Differenzierers konnten experimentell bestätigt werden. Die bestimmte Steigung im doppelt-logarithmischen $f$-$U_\mathrm{a}$-Diagramm für den Integrator lautet $a_\mathrm{Int} = \num{-1.095 \pm 0.023}$ und weicht somit um $\SI{9.5}{\percent}$ vom Theoriewert $a_\mathrm{Int,Theo.} = \num{-1}$ ab.
+Für den Differenzierer lautet die bestimmte Steigung $a_\mathrm{Diff} = \num{1.002 \pm 0.003}$. Diese weicht um $\SI{0.2}{\percent}$ vom Theoriewert $a_\mathrm{Diff,Theo.} = \num{1}$ ab.
+Da die Unsicherheiten der Steigungskoeffizienten gering sind, lassen sich grobe Messfehler ausschließen. Demnach sind auch hier die Abweichungen vom Theoriewert vermutlich darauf zurückzuführen, dass von idealen Operationsverstärkern ausgegangen wird und dementsprechend Einflüsse  durch Gleichtaktverstärkung, endliche Eingangsströme und Offsetspannungen und -ströme vernachlässigt werden.
+% Weiterhin können Abweichungen der verwendeten Kapazitäten und Widerstände vom angegebenen Wert zu Abweichungen in den Ergebnissen führen.
+\\
+
+Weiterhin konnte im Versuch die Funktionsweise des Schmitt-Triggers reproduziert werden. Die gemessene Kippspannung $U_{\mathrm{e, Kipp}} = \SI{680}{\milli\volt}$ weicht nur um ca. $\SI{0.27}{\percent}$ vom Theoriewert $U_{S_{\pm}} = 0.6\bar{81} \, \si{\volt}$ ab, allerdings konnte die Spannung auch nur in $\SI{20}{\milli\volt}$-Schritten gemessen werden. Daher ist nicht auszuschließen, dass die Abweichung systematischer Natur ist.\\
+
+Die Messung des Signalgenerators war sehr problematisch, da die Betriebsspannungsversorgung ausgefallen ist. In einer Oszilloskopaufnahme\cite{ahlmann_2021} ist allerdings die Funktionsweise dargestellt. Bei negativer Ausgangsspannung des Schmitt-Triggers ist ein Dreieck-Signal zu sehen, bei Vorzeichenwechsel der Ausgangsspannung des Schmitt-Triggers ist jedoch kein negatives Dreieck-Signal zu sehen, sondern Unstetigkeiten um eine konstante Spannung. Folglich konnte hier die Funktionsweise zwar nuanciert dargestellt, allerdings nicht vollständig reproduziert werden.\\
 
 Die Schaltung mit variierenden Amplituden konnte aufgrund der ausgefallenen Betriebsspannung nicht untersucht werden.
