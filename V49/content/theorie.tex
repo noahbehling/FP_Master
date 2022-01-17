@@ -2,11 +2,19 @@
 Bei der Kernspinresonanz (NMR) wird ausgenutzt, dass die magnetischen Momente der Atomkerne einer Probe sich in einem externen Magnetfeld ausrichten, sodass eine makroskopische Magnetisierung der Probe vorliegt. Das Einsenden von hochfrequenter (HF) Strahlung ermöglicht die Messung zeitabhängiger Signale, welche Rückschlüsse auf mikroskopische Relaxationsprozesse erlaubt. Diese Anwendung wird als gepulste NMR bezeichnet. Im Folgenden werden ihre physikalischen Grundlagen erläutert und einige Messmethoden vorgestellt.
 
 \subsection{Magnetisierung einer Probe}
-Beim Anlegen eines externen Magnetfeldes $\vec{B}_0 = B_0 \vec{e}_z$ spalten sich die Energieniveaus einer Probe in $2S + 1$ Unterniveaus auf, wobei $S$ der Spin der Atome der Probe ist. Dieser Effekt wird Zeeman-Effekt genannt und die einzelnen Unterniveaus können mit der Quantenzahl $m \in \left\{ -S,S \right\}$ unterschieden werden, wobei jedes $m$ eine Ausrichtung des Spins zum Magnetfeld beschreibt. Im thermischen Gleichgewicht sind diese Zustände nach der Maxwell-Boltzmann-Verteilung unterschiedlich besetzt, woraus eine Kernspinpolarisation folgt. Für Protonen mit Spin $S = 1/2$ und Masse $m$ und unter der Annahme, dass
+Beim Anlegen eines externen Magnetfeldes $\vec{B}_0$ spalten sich die Energieniveaus einer Probe in $2S + 1$ Unterniveaus auf, wobei $S$ der Spin der Atome der Probe ist. Dieser Effekt wird Zeeman-Effekt genannt und die einzelnen Unterniveaus können mit der Quantenzahl $m \in \left\{ -S,S \right\}$ unterschieden werden, wobei jedes $m$ eine Ausrichtung des Spins zum Magnetfeld beschreibt. Für die magnetische Energie $U$ eines Kerns gilt im Allgemeinen
+\begin{equation*}
+  U = - \vec{\mu} \cdot \vec{B_0}
+\end{equation*}
+mit dem magnetischen Moment $\vec{\mu}$. Zur Vereinfachung dieser und folgender Formeln bietet es sich an, das Magnetfeld in $z$-Richtung zu betrachten, sodass $\vec{B}_0 = B_0 \vec{e}_z$ gilt. Dies ist ohne Beschränkung der Allgemeinheit möglich. Für die magnetische Energie des Kerns gilt dann
+\begin{equation*}
+  U = - \gamma \hbar m B_0.
+\end{equation*}
+Im thermischen Gleichgewicht sind diese Zustände nach der Maxwell-Boltzmann-Verteilung unterschiedlich besetzt, woraus eine Kernspinpolarisation folgt. Für Protonen mit Spin $S = 1/2$ und Masse $m$ und unter Berücksichtigung, dass für Felder der Größenordnung $\SI{1}{\tesla}$ bei Raumtemperatur
 \begin{equation*}
   m \gamma B_0 \hbar \ll k_\mathrm{B} T
 \end{equation*}
-gilt für die Polarisation in $z$-Richtung in linearer Näherung
+ist, gilt für die Polarisation in $z$-Richtung in linearer Näherung
 \begin{equation*}
   \left< S_z \right> = - \frac{\hbar^2}{4}\frac{\gamma B_0}{k_\text{B} T}.
 \end{equation*}
@@ -48,9 +56,9 @@ Ist nun die Frequenz des HF-Feldes gleich der Lamorfrequenz $\omega_\mathrm{L}$,
 
 
 \subsection{Pulsfolgen zur Bestimmung der Relaxationszeiten}
-Bei der gepulsten NMR wird die zu untersuchende Probe von einer zu $\vec{B}_0$ senkrechten Spule umgeben. Diese dient sowohl zur Einstrahlung von HF-Strahlung, als auch zur Messung der durch die Präzession der Quermagnetisierung induzierten Spannung. Dieses Signal zerfällt mit $T_2$. Wird die Magnetisierung nur mit einem $\SI{90}{\degree}$-Puls in die $x$-$y$-Ebene gedreht, wird der daraufhin beobachtete Zerfall des Signals freier Induktionszerfall (engl.: free induction decay, kurz FID) genannt. Dieses Signal kann zur Bestimmung der Relaxationszeiten genutzt werden.
+Bei der gepulsten NMR wird die zu untersuchende Probe von einer Spule umgeben, deren erzeugtes Magnetfeld senkrecht zu $\vec{B}_0$ ist. Diese dient sowohl zur Einstrahlung von HF-Strahlung, als auch zur Messung der durch die Präzession der Quermagnetisierung induzierten Spannung. Dieses Signal zerfällt mit $T_2$. Wird die Magnetisierung nur mit einem $\SI{90}{\degree}$-Puls in die $x$-$y$-Ebene gedreht, wird der daraufhin beobachtete Zerfall des Signals freier Induktionszerfall (engl.: free induction decay, kurz FID) genannt. Dieses Signal kann zur Bestimmung der Relaxationszeiten genutzt werden.
 
-Zur $T_1$-Bestimmung kann die \textit{Inversion Recovery} genutzt werden. Hierbei wird zunächst mittels eines $\SI{180}{\degree}$-Pulses die Gleichgewichtsmagnetisierung in $z$-Richtung invertiert. Daraufhin wird nach einer Wartezeit $t$ ein $\SI{90}{\degree}$-Puls eingestrahlt, sodass der bereits relaxierte Anteil der Magnetisierung quermagnetisiert wird und somit ein messbares Signal erzeugt. Für die Magnetisierung gilt dabei
+Zur $T_1$-Bestimmung kann die \textit{Inversion Recovery} genutzt werden. Hierbei wird zunächst mittels eines $\SI{180}{\degree}$-Pulses die Gleichgewichtsmagnetisierung in $z$-Richtung invertiert. Daraufhin wird nach einer Wartezeit $t$ ein $\SI{90}{\degree}$-Puls eingestrahlt, sodass die Magnetisierung quermagnetisiert wird und somit ein messbares Signal erzeugt, welches proportional zur Differenz der Magnetisierung in $z$- und $-z$-Richtung ist. Für die Magnetisierung gilt dabei
 \begin{equation}
   M_x \left(t\right) = M_0 \left(1 - 2 \exp \left(-\frac{t}{T_1}\right)\right).
   \label{eq:T1}
@@ -58,9 +66,9 @@ Zur $T_1$-Bestimmung kann die \textit{Inversion Recovery} genutzt werden. Hierbe
 % In der Praxis lässt sich $M_z (0) = - M_0$ aufgrund von Inhomogenitäten von $B_1$ nicht realisieren.
 Die Aufnahme von Werten für verschiedene Zeiten $t$ erlaubt dann die Bestimmung von $T_1$. Hierbei muss allerdings mindestens $5T_1$ zwischen zwei Messungen gewartet werden, damit die Magnetisierung sich wieder im Gleichgewichtszustand befindet.
 
-Eine weitere wichtige Pulsfolge ist die Hahn-Echo-Methode. Hierbei wird zunächst ein $\SI{90}{\degree}$-Puls ausgestrahlt, sodass sich die Magnetisierung parallel zur $y$-Achse orientiert. Durch Feldinhomogenitäten fächert die Magnetisierung auf, sodass keine Induktionsspannung mehr zu messen ist. Nach einer Wartezeit $\tau$ wird ein $\SI{180}{\degree}$-Puls eingestrahlt, sodass die aufgefächerten Spins invertiert werden und wieder zusammenlaufen. Nach der selben Zeit $\tau$, also insgesamt $t = 2\tau$ kann ein zweites Signal mit invertiertem Vorzeichen gemessen werden. Aufgrund irreversibler Wechselwirkungsprozesse der Spins mit ihrer Umgebung ist das zweite Signal allerdings typischerweise abgeschwächt, selbst wenn $T_2 \rightarrow \infty$ geht. Daher ist die experimentell messbare Relaxationszeit $T_2'$ kleiner als die wahre Relaxationszeit $T_2$. Für diese gilt
+Eine weitere wichtige Pulsfolge ist die Hahn-Echo-Methode. Hierbei wird zunächst ein $\SI{90}{\degree}$-Puls ausgestrahlt, sodass sich die Magnetisierung parallel zur $y$-Achse orientiert. Durch Feldinhomogenitäten fächert die Magnetisierung auf, sodass keine Induktionsspannung mehr zu messen ist. Nach einer Wartezeit $\tau$ wird ein $\SI{180}{\degree}$-Puls eingestrahlt, sodass die aufgefächerten Spins invertiert werden und wieder zusammenlaufen. Nach der selben Zeit $\tau$, also insgesamt $t = 2\tau$ kann ein zweites Signal mit invertiertem Vorzeichen gemessen werden. Aufgrund irreversibler Wechselwirkungsprozesse der Spins mit ihrer Umgebung ist das zweite Signal allerdings typischerweise abgeschwächt. Daher ist die experimentell messbare Relaxationszeit $T_2^*$ kleiner als die wahre Relaxationszeit $T_2$. Für diese gilt
 \begin{equation*}
-  \frac{1}{T_2'} = \frac{1}{T_2} + \frac{1}{T_{2,\mathrm{irr}}},
+  \frac{1}{T_2^*} = \frac{1}{T_2} + \frac{1}{T_{2,\mathrm{irr}}},
 \end{equation*}
 wobei $T_{2,\mathrm{irr}}$ der irreversible Einfluss auf die Relaxationszeit ist. Solange der inhomogene Anteil von $\vec{B}_0$ aber hinreichend klein ist, lässt sich $T_2$ mit der Hahn-Echo-Methode bestimmen. Für die Höhe des Echos gilt dabei
 \begin{equation}
@@ -68,14 +76,14 @@ wobei $T_{2,\mathrm{irr}}$ der irreversible Einfluss auf die Relaxationszeit ist
   \label{eq:T2}
 \end{equation}
 
-Da die Hahn-Echo-Methode allerdings sehr zeitaufwendig ist, da nach jeder Messung gewartet werden muss, bis die Probe sich wieder im Gleichgewichtszustand befindet, ist es geschickter, nach dem anfänglichen $\SI{90}{\degree}$-Puls mehrere $\SI{180}{\degree}$-Pulse bei $t = (2n+1)\tau, n \in \mathbb{N}_0$ einzustrahlen, welche um $\SI{90}{\degree}$ phasenverschoben zum ersten HF-Puls sind. Die Phasenverschiebung bietet den Vorteil, dass Fehljustierungen des $\SI{180}{\degree}$-Pulses sich bei jedem geradzahligen Echo aufheben und die Amplitude nicht abgeschwächt ist. Durch die direkt hintereinander ausgeführten Pulse reicht außerdem eine einzige Messung, bei der nicht gewartet werden muss, bis die Magnetisierung wieder im Gleichgewichtszustand ist. Diese Methode wird Meibloom-Gill-Methode genannt.
+Da die Hahn-Echo-Methode allerdings sehr zeitaufwendig ist, da nach jeder Messung gewartet werden muss, bis die Probe sich wieder im Gleichgewichtszustand befindet, ist es geschickter, nach dem anfänglichen $\SI{90}{\degree}$-Puls mehrere $\SI{180}{\degree}$-Pulse bei $t = (2n+1)\tau, n \in \mathbb{N}_0$ einzustrahlen, welche um $\SI{90}{\degree}$ phasenverschoben zum ersten HF-Puls sind. Die Phasenverschiebung bietet den Vorteil, dass Fehljustierungen des $\SI{180}{\degree}$-Pulses sich bei jedem geradzahligen Echo aufheben und die Amplitude nicht abgeschwächt ist. Durch die direkt hintereinander ausgeführten Pulse reicht außerdem eine einzige Messung, bei der nicht gewartet werden muss, bis die Magnetisierung wieder im Gleichgewichtszustand ist. Diese Methode wird Carr-Purcell-Meibloom-Gill-Methode genannt.
 
 Ist $T_2$ bekannt, so kann mit der Hahn-Echo-Methode außerdem das Diffusionsverhalten einer Probe untersucht werden. Hierbei wird die Inhomogenität von $\vec{B}_0$ maximiert, sodass die Larmorfrequenz ortsabhängig wird. Für die Amplitude des Hahn-Echos gilt dann
 \begin{equation}
-  M_{x,y} \left(t\right) = M_{x,y}\left(0\right) \exp \left(-\frac{2\tau}{T_2}\right) \exp \left(-\frac{2}{3} D \gamma^2 G^2 \tau^3\right) = M_0 \exp \left(-\frac{2\tau}{T_2}\right) \exp \left(-\frac{2\tau}{T_\mathrm{D}}\right),
+  M_{x,y} \left(t\right) = M_{x,y}\left(0\right) \exp \left(-\frac{2\tau}{T_2}\right) \exp \left(-\frac{2}{3} D \gamma^2 G^2 \tau^3\right) = M_0 \exp \left(-\frac{2\tau}{T_2}\right) \exp \left(-\frac{2\tau^3}{T_\mathrm{D}}\right),
   \label{eq:D}
 \end{equation}
-wobei $t = 2\tau$ und $T_\mathrm{D} = \frac{3}{D \gamma^2 G^2 \tau^2}$ eingesetzt wurde. $G$ beschreibt hierbei den Feldgradienten und $D$ ist die Diffusionskonstante. Über letztere lässt sich schließlich auch der Molekülradius $R_0$ mit der Einstein-Stokes-Gleichung
+wobei $t = 2\tau$ und $T_\mathrm{D} = \frac{3}{D \gamma^2 G^2}$ eingesetzt wurde. Hierbei beschreibt $G$ den Feldgradienten und $D$ ist die Diffusionskonstante. Über letztere lässt sich schließlich auch der Molekülradius $R_0$ mit der Einstein-Stokes-Gleichung
 \begin{equation}
   D = \frac{k_\mathrm{B} T}{6\pi\eta R_0}
   \label{eq:R0}
