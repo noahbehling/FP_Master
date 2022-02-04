@@ -2,16 +2,15 @@
 Das Standardmodell der Elementarteilchen unterscheidet zwischen Quarks, Leptonen und Eichbosonen.
 Sowohl Quarks als auch Leptonen lassen sich in drei Generationen einteilen.
 Das Myon beziehungsweise das Anti-Myon
-bilden dabei die zweite Generation Leptonen mit zugehörigen Neutrinos. Sie besitzen wie das Elektron 
-einen Spin $1/2$ und eine negative (beziehungsweise positive) Elementarladung. Beide Leptonen unterscheiden sich allerdings in ihrer Masse 
-und in ihrer Lebensdauer. Während das Elektron stabil ist, haben Myonen eine endliche Lebensdauer, welche in diesem 
+bilden dabei die zweite Generation Leptonen mit zugehörigen Neutrinos. Sie besitzen wie das Elektron
+einen Spin $1/2$ und eine negative (beziehungsweise positive) Elementarladung. Beide Leptonen unterscheiden sich allerdings in ihrer Masse
+und in ihrer Lebensdauer. Während das Elektron stabil ist, haben Myonen eine endliche Lebensdauer, welche in diesem
 Experiment bestimmt werden soll. Des Weiteren weisen Myonen die ungefähr 206-fache Masse von Elektronen auf.
-Im Folgenden wird der Begriff Myonen sowohl für Myonen als auch Anti-Myonen analog verwendent, da die hier 
+Im Folgenden wird der Begriff Myonen sowohl für Myonen als auch Anti-Myonen analog verwendent, da die hier
 relevanten Eigenschaften für beide Teilchen gleich sind.
 
 \subsection{Enstehung kosmischer Myonen und Detektion}
-Hochenergetische kosmische Strahlung erzeugt bei Auftreffen auf die Atmosphäre in ca. $10-20\;$km Höhe
-Teilchenschauer. Besonders auftreffende Protonen hadronisieren dabei vor allem zu Pionen und Kaonen.
+Hochenergetische kosmische Strahlung erzeugt bei Auftreffen auf die Atmosphäre Teilchenschauer. Die Primärstrahlung setzt sich dabei schon oberhalb von $\SI{20}{\kilo\metre}$ vollständig in andere Teilchen um\cite{gerthsen2013physik}. Besonders auftreffende Protonen hadronisieren dabei vor allem zu Pionen und Kaonen.
 Da diese Teilchen instabil sind zerfallen sie zu Myonen (und entsprechenden Neutrinos) über
 \begin{align*}
     \pi^{+} &\to \mu^{+} + \nu_{\mu} \\
@@ -24,38 +23,38 @@ Der Zerfallskanal des Myons lautet
 \end{align*}
 Myonen haben eine längere Lebensdauer als Pionen und können damit die Erdoberfläche erreichen.
 Dort lassen sich diese mit Hilfe eines Szintillators erfassen. Im Szintillatormaterial regen die eintreffenden
-Myonen die Moleküle an, welche beim wieder Abregen ein Photon abstrahlen. Dieses Photon kann dann wiederrum 
+Myonen die Moleküle an, welche beim wieder Abregen ein Photon abstrahlen. Dieses Photon kann dann wiederrum
 durch einen Sekundärelektronenvervielfacher detektiert werden. Dabei absorbiert dieser das Photon und emittiert
 ein Elektron, welches durch eine Beschleunigungsspannung und Halbleiterelementen um einen Faktor $10^5$ verstärkt wird
 und damit ein Signal abgibt.
-Wenn die eintreffenden Myonen dann auch im Szintillator zerfallen lösen die Elektronen beziehungsweise Positronen 
-ein weiteres Signal im Szintillator aus. Durch den zeitlichen Abstand der beiden Signale lässt sich 
+Wenn die eintreffenden Myonen dann auch im Szintillator zerfallen lösen die Elektronen beziehungsweise Positronen
+ein weiteres Signal im Szintillator aus. Durch den zeitlichen Abstand der beiden Signale lässt sich
 die Lebendauer des jeweiligen, detektierten Myons bestimmen.
 
 \subsection{Definition der mittleren Lebendauer}
-Der Zerfall instabiler Teilchen ist ein statistischer Prozess. Das heißt, dass jedes zerfallende 
-Teilchen eine individuelle Lebensdauer annehmen kann, weshalb, um eine charakteristische Größe zu definieren, 
+Der Zerfall instabiler Teilchen ist ein statistischer Prozess. Das heißt, dass jedes zerfallende
+Teilchen eine individuelle Lebensdauer annehmen kann, weshalb, um eine charakteristische Größe zu definieren,
 über alle Lebensdauern gemittelt werden muss. Infinitesimal betrachtet ist die Wahrscheinlichkeit $\symup{d}W$
-des Zerfalls proportional zur Messzeit $\symup{d}t$ über 
+des Zerfalls proportional zur Messzeit $\symup{d}t$ über
 \begin{equation*}
     \symup{d}W = \lambda \; \symup{d}t,
 \end{equation*}
 wobei $\lambda$ die Zerfallskonstante ist.
-Da Teilchen unabhängig voneinander zerfallen und das Alter des Teilchens keinen Einfluss auf die Zerfallswahrscheinlichkeit 
+Da Teilchen unabhängig voneinander zerfallen und das Alter des Teilchens keinen Einfluss auf die Zerfallswahrscheinlichkeit
 hat, lässt sich für die Zahl der im Zeitraum $\symup{d}t$ zerfallenen Teilchen $\symup{d}t$ folgern
 \begin{equation*}
     \symup{d} N = - N \; \symup{d}W = - \lambda N \; \symup{d}t.
 \end{equation*}
-Für sehr große Zahlen $N$ lässt sich der Zusammenhang zu 
+Für sehr große Zahlen $N$ lässt sich der Zusammenhang zu
 \begin{equation*}
     \frac{N(t)}{N_0} = e^{-\lambda t}
 \end{equation*}
 integrieren, wobei $N_0$ die Gesamtzahl der betrachteten Teilchen ist.
-Durch Bildung der Verteilungsfunktion der Lebensdauer $t$ ergibt sich 
+Durch Bildung der Verteilungsfunktion der Lebensdauer $t$ ergibt sich
 \begin{equation*}
     \frac{\symup{d}N(t)}{N_0} = \lambda e^{-\lambda t} \; \symup{d}t.
 \end{equation*}
-Die charakteristische Lebensdauer $\tau$ ergibt sich als Mittwelwert aller möglichen Lebensdauern über 
+Die charakteristische Lebensdauer $\tau$ ergibt sich als Mittwelwert aller möglichen Lebensdauern über
 \begin{equation*}
     \tau = \int_0^{\infty} \lambda t e^{-\lambda t} \; \symup{d} t = \frac{1}{\lambda},
 \end{equation*}

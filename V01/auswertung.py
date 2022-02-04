@@ -115,6 +115,11 @@ print("Untergrundrate: ", N_fehl)
 N_fehl_norm = N_fehl / N_channel
 print("Untergrundrate pro Channel: ", N_fehl_norm)
 
+
+def N_fit(x, N0, a):
+    return N(x, N0, a, unp.nominal_values(N_fehl_norm))
+
+
 print("\n MCA Kalibrierung:")
 
 del_t, channel1, counts1, channel2, counts2, channel3, counts3 = np.genfromtxt(
@@ -151,7 +156,7 @@ t = err[0] * channels + err[1]
 
 
 plt.clf()
-params, cov = curve_fit(N, unp.nominal_values(t)[65:], counts[65:])
+params, cov = curve_fit(N_fit, unp.nominal_values(t)[65:], counts[65:])
 unc = np.sqrt(np.diag(cov))
 err = unp.uarray(params, unc)
 ln = np.linspace(0, 12, 100000)
@@ -177,7 +182,7 @@ plt.errorbar(
 #     marker="+",
 #     label="Nicht einbezogene Messwerte",
 # )
-plt.plot(ln, N(ln, *params), c="r", label="Exponentieller Fit")
+plt.plot(ln, N_fit(ln, *params), c="r", label="Exponentieller Fit")
 plt.legend(loc=0)
 plt.xlabel(r"t/$\mu$s")
 plt.ylabel(r"$N$")

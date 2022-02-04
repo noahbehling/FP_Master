@@ -1,6 +1,6 @@
 \section{Auswertung}
 
-Zur Bestimmung der Lebensdauer von Myonen beträgt die Messzeit $ t_\mathrm{Mess} = \SI{180899}{\second} \approx \SI{50.25}{\hour}$. Hierbei wurden $N_\mathrm{Start} = \num{3648888}$ Start- und $N_\mathrm{Stopp} = \num{17157}$ Stoppimpulse registriert. Die Zahl der aktiven Kanäle, also der Kanäle mit mindestens einem Eintrag und zwischen zwei Kanälen mit mindestens einem Eintrag, beträgt $N_{\mathrm{Channel}} = \num{8063}$.
+Zur Bestimmung der Lebensdauer von Myonen beträgt die Messzeit $ t_\mathrm{Mess} = \SI{180899}{\second} \approx \SI{50.25}{\hour}$. Hierbei wurden $N_\mathrm{Start} = \num{3648888}$ Start- und $N_\mathrm{Stopp} = \num{17157}$ Stoppimpulse registriert. Die Zahl der aktiven Kanäle, also aller Kanäle zwischem dem ersten und dem letzten Kanal mit mindestens einem Eintrag, beträgt $N_{\mathrm{Channel}} = \num{8063}$.
 Die Auswertung erfolgt in der Programmiersprache \textit{python} mit Hilfe der wissenschaftlichen Bibliotheken \textit{numPy}\cite{numpy}, \textit{sciPy}\cite{scipy}, \textit{matplotlib}\cite{matplotlib} und \textit{uncertainties}\cite{uncertainties}.
 
 \subsection{Bestimmung der Halbwertsbreite}
@@ -18,11 +18,11 @@ Da kein eindeutiges Maximum vorliegt, wird der Mittelwert der gemessenen Counts 
 \begin{equation*}
   \bar{N}_\mathrm{max} = \num{333 \pm 7}.
 \end{equation*}
-Zur Bestimmung der Halbwertsbreite wird durch beide Flanken eine Ausgleichsgerade
+Die beiden Flanken werden linear approximiert mit einer Funktion
 \begin{equation*}
-  N(\Delta t) = a \cdot \Delta t + b
+  N(\Delta t) = a \cdot \Delta t + b.
 \end{equation*}
-gelegt. Die Messwerte, sowie die Ausgleichsgeraden, sind in \autoref{fig:verz} grafisch dargestellt.
+Mit den daraus bestimmten Parametern kann die Verzögerung bestimmt werden, bei der die Hälfte des maximalen Werts erreicht wird, woraus sich die Halbwertsbreite berechnen lässt. Die Messwerte, sowie die Ausgleichsgeraden, sind in \autoref{fig:verz} grafisch dargestellt.
 
 \begin{figure}[H]
   \centering
@@ -44,8 +44,13 @@ Folglich gilt für die Halbwertsbreite
 \begin{equation*}
   \Delta t_\mathrm{HWB} = \SI{11.5 \pm 0.7}{\ns}.
 \end{equation*}
+Der theoretische Wert beträgt die Summe der beiden Signallängen, welche hier $t_\mathrm{Impuls} = \SI{10}{\nano\second}$ betragen. Die theoretische Halbwertsbreite ergibt sich demnach zu $\Delta t_\mathrm{HWB, theo} = 2 \cdot t_\mathrm{Impuls} = \SI{20}{\nano\second}$.
+% Die Differenz dieser beiden Werte wird Koinzidenzzeit $t_\mathrm{K}$ genannt und gibt an, wie lange sich die beiden Signale überlappen müssen, damit ein Koinzidenzsignal entsteht. Für die Koinzidenzzeit gilt also
+% \begin{equation*}
+%   t_\mathrm{K} = \Delta t_\mathrm{HWB, theo} - \Delta t_\mathrm{HWB} = \SI{8.5 \pm 0.7}{\nano\second}.
+% \end{equation*}
 
-\subsection{Bestimmung der Untergrundrate}
+\subsection{Bestimmung der Untergrundrate}\label{chap:Untergrund}
 %  Untergrundratenbestimmung:
 % Myonenfrequenz:  20.171+/-0.011  pro Sekunde
 % Untergrundrate:  809.8+/-0.8
@@ -95,12 +100,14 @@ Die ermittelten Fit-Parameter lauten hierbei
 % 9.94+/-0.09 0.478+/-0.008 0.107+/-0.028
 % Lebensdauer = 2.092+/-0.033
 
+% 9.94+/-0.08 0.477+/-0.005
+% Lebensdauer = 2.098+/-0.023
+
 Die Zahl der registrierten Ereignisse je Channel sind \autoref{tab:data} zu entnehmen. Die jeweiligen Kanalnummern werden über die in \autoref{chap:MCA} bestimmten Parameter in zeitliche Abstände umgerechnet und durch diese wird eine Augleichsfunktion der Form
 \begin{equation*}
-  N(\Delta t) = N_0 \cdot \exp (- \lambda \cdot \Delta t) + N_\mathrm{Untergrund}
+  N(\Delta t) = N_0 \cdot \exp (- \lambda \cdot \Delta t) + b
 \end{equation*}
-gelegt, wie in \autoref{fig:data} zu sehen ist.
-
+gelegt, wie in \autoref{fig:data} zu sehen ist. Der Parameter $b$ wird hierbei auf den in \autoref{chap:Untergrund} bestimmten Wert für die Untergrundrate $N_\mathrm{Untergrund,norm}$ fixiert.
 \begin{figure}[H]
   \centering
   \includegraphics[width=12cm,keepaspectratio]{plots/lebensdauer.pdf}
@@ -109,11 +116,10 @@ gelegt, wie in \autoref{fig:data} zu sehen ist.
 \end{figure}
 Bei der Ausgleichsrechnung werden die ersten 65 Kanäle nicht berücksichtigt, da diese kein Signal enthalten. Für die Fit-Parameter ergibt sich
 \begin{align*}
-  N_0 &= \num{9.94 \pm 0.09} \\
-  \lambda &= \SI{0.478 \pm 0.008}{\per\micro\second} \\
-  N_\mathrm{Untergrund} &= \num{0.11 \pm 0.028} \frac{1}{\mathrm{Channel}}
+  N_0 &= \num{9.94 \pm 0.08} \\
+  \lambda &= \SI{0.477 \pm 0.005}{\per\micro\second}
 \end{align*}
 und somit lautet die bestimmte Lebensdauer der Myonen
 \begin{equation*}
-  \tau = \frac{1}{\lambda} = \SI{2.09 \pm 0.033}{\micro\second}.
+  \tau = \frac{1}{\lambda} = \SI{2.10 \pm 0.023}{\micro\second}.
 \end{equation*}
