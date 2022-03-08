@@ -75,12 +75,15 @@ a = scipy.signal.peak_widths( a, [481], rel_height=0.92)
 print("a", a)
 h = a[0]*4.970673029128921598e+02
 print("h", h)
-plt.plot(freqs, np.real(fftdata), label=r'Fouriertransformation')
-#plt.plot([freqs[466], freqs[494]], [0.71042692, 0.71042692], color='red', label='Durchmesser')
+plt.plot(freqs[450:510], np.real(fftdata[450:510]), label=r'Fouriertransformation')
+plt.plot([freqs[466], freqs[494]], [0.71042692, 0.71042692], color='red', label='Durchmesser')
 #plt.axvline(x=freqs[468], color='red', linestyle='--' )
 #plt.axvline(x=freqs[493], color='red', linestyle='--' )
-plt.legend()
+plt.legend(loc='upper right')
+plt.xlabel(r'$f$ / Hz')
+plt.ylabel(r'Amplitude')
 plt.grid(alpha=0.5)
 plt.savefig("build/echo_gradient.pdf")
 gamma = 2.675 * 10**8
+h = 14000
 print(2 * np.pi * h /(gamma * 0.0042))

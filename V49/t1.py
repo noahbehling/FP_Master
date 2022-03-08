@@ -7,7 +7,7 @@ t, A = np.genfromtxt('data/T1.csv', delimiter=';', skip_header=1, unpack=True)
 A = A * 10**-3
 print(A)
 def f(t, A0, A1, T1):
-    return A0 * np.exp(- t/ T1) + A1
+    return A0 *(1 - 2* np.exp(- t/ T1)) + A1
 
 params, pcov = curve_fit(f, t, A, p0=(-1, 1, 0.5))
 
@@ -23,6 +23,8 @@ print('A1: ', A1, A1_err)
 print('T1: ', T1, T1_err)
 
 x = np.linspace(np.min(t), np.max(t), 100)
+plt.plot(x, A0*np.ones_like(x), 'y-')
+plt.plot(x, -A0*np.ones_like(x), 'y-', label=r'$M_0$')
 plt.plot(x, f(x, *params), 'r-', label=r'Ausgleichskurve')
 plt.plot(t, A, 'bo', label=r'Messwerte')
 plt.semilogx()
@@ -46,6 +48,10 @@ M_max = argrelmax(M, order =20)[0]
 def f(t, M0, M1, T2):
     return M0 * np.exp(- t/T2) + M1 
 
+np.savetxt('test.csv', np.transpose([t[M_max], M[M_max]]), delimiter=';')
+M_max = M_max[1::2]
+print('t', t[M_max])
+print('M', M[M_max])
 params, pcov = curve_fit(f, t[M_max], M[M_max])
 M0 = params[0]
 M1 = params[1]
@@ -127,7 +133,7 @@ plt.savefig('build/plot_TD.pdf')
 gamma = 2.675 * 10**8
 from uncertainties import ufloat
 uff = ufloat(TD, TD_err)
-D =  3/2*uff/( gamma**2 * 0.079**2)
+D =  3/2*uff/( gamma**2 * 0.078**2)
 print("D", D)
 r = 294.55 * 1.380649*10**-23 /(6 * np.pi * (1002*10**-6) * D )
 print(r)
